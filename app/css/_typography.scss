@@ -1,0 +1,71 @@
+
+html {
+    color: $fontColor;
+    font-family: $fontFamily;
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    line-height: $fontLineHeight;
+    //letter-spacing: 0.1px;
+}
+strong {
+    color: $fontHeavyColor;
+    font-family: $fontHeavyFamily;
+    font-weight: $fontHeavyWeight;
+}
+
+/* --- Title --- */
+h1, h2, h3, h4 {
+    margin: $fontLineHeight * 0.5 0 0 0;
+    padding: 0;
+
+    color: $headingFontColor;
+    font-family: $headingFontFamily;
+    font-size: $headingFontSize;
+    font-weight: $headingfontHeavyWeight;
+    line-height: $headingFontLineHeight;
+
+    strong {
+        font-family: $headingFontFamily;
+        font-weight: $headingfontHeavyWeight + 100;
+    }
+}
+@for $i from 1 through $headingBaseLevel - 1 {
+    $_multiplier: $headingBaseLevel - $i;
+
+    h#{$i} {
+        $_margin-top: $gridGutterHeight * $headingMultiplier * $_multiplier;
+        margin-top: $_margin-top;
+        margin-bottom: $_margin-top % $gridGutterHeight;
+
+        font-size: $headingFontSize * $headingMultiplier * $_multiplier;
+        line-height: $headingFontLineHeight * $headingMultiplier * $_multiplier;
+    }
+}
+p {
+    margin: 0 0 $fontLineHeight * 0.5 0;
+}
+
+/* --- Lists --- */
+ul {
+    list-style-type: none;
+    margin: $gridGutterHeight * 0.5 0;
+    padding: 0;
+
+    li {
+        margin-bottom: $gridGutterHeight * 0.125;
+        margin-left: $listIndent;
+
+        &:before {
+            content: '-';
+            display: inline-block;
+            margin-left: $listIndent * -1;
+            width: $listIndent;
+        }
+
+        &.noBullet:before {
+            display: none;
+        }
+    }
+}
+
+/* --- Quotes --- */

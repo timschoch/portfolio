@@ -1,0 +1,17 @@
+header#pageHeader {
+	position: fixed;
+	left: 50%;
+	transform: translate( $fullWidth * -0.5, 0 );
+	min-height: 100%;
+	width: $leftColWidth;
+}
+main#pageContent {
+	position: absolute;
+	left: 50%;
+
+	transform: translate( ( $fullWidth * 0.5 - ( $fullWidth - $mainColMaxWidth ) ) * -1, 0 );
+	max-width: $mainColMaxWidth;
+}
+section {
+	min-height: 500px;
+}

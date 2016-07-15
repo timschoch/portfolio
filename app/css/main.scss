@@ -1,16 +1,40 @@
+@import 'functions';
+
+// --- base font size --- //
+$gridBaseFontSize: 20px;
+$gridBaseLineHeight: rem( 32px );
+
+$gridGutterHeight: $gridBaseLineHeight;
+$gridGutterWidth: $gridGutterHeight;
+
+// --- Typography ------- //
+$fontColor: #333;
+$fontFamily: 'Open Sans', sans-serif;
+$fontSize: $gridBaseFontSize;
+$fontWeight: 400;
+$fontLineHeight: $gridBaseLineHeight;
+
+$fontHeavyColor: #000;
+$fontHeavyFamily: $fontFamily;
+$fontHeavyWeight: 600;
+
+$headingFontColor: $fontHeavyColor;
+$headingFontFamily: 'Assistant', sans-serif;
+$headingFontSize: rem( 22px );
+$headingfontHeavyWeight: 600;
+$headingFontLineHeight: $fontLineHeight;
+$headingMultiplier: 1.25;
+$headingBaseLevel: 4;
+
+$listIndent: $gridGutterWidth * 0.5;
+
+// --- Vars ------ //
+
+$leftColWidth: rem( 200px );
+$mainColMaxWidth: rem( 600px );
+$fullWidth: $mainColMaxWidth + $gridGutterWidth + $leftColWidth;
+
 // bower:scss
 // endbower
 
-header#pageHeader {
-	position: fixed;
-	left: 0;
-	min-height: 100%;
-	width: 200px;
-}
-main#pageContent {
-	margin-left: 250px;
-}
-
-section {
-	min-height: 500px;
-}
+@import 'scaffolding';
