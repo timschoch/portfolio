@@ -1,6 +1,16 @@
 // bower:scss
 // endbower
 
-body:before {
-  content: "I'm at 'app/css/main.scss";
+header#pageHeader {
+	position: fixed;
+	left: 0;
+	min-height: 100%;
+	width: 200px;
+}
+main#pageContent {
+	margin-left: 250px;
+}
+
+section {
+	min-height: 500px;
 }
