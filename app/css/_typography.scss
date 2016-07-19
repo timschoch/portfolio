@@ -145,3 +145,17 @@ blockquote {
 blockquote + blockquote {
     margin-top: $gridGutterHeight * 2;
 }
+
+// --- figures --- //
+figure {
+    margin: $gridGutterHeight * .5 0;
+
+    figcaption {
+        @extend %small;
+    }
+}
+
+
+figure + figure {
+    margin-top: $gridGutterHeight * 2;
+}

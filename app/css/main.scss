@@ -43,6 +43,10 @@ $listIndent: $gridGutterWidth * 0.5;
 $quoteIndent: $gridGutterWidth * 0.5;
 $quoteCiteIndent: 20px; // manually adjusted to fit em dash in the cite font size
 
+// --- Navigation --- //
+$navIndent: $gridGutterWidth;
+$navLineHeight: $fontLineHeight * 1.2;
+
 // --- Vars ------ //
 
 $leftColWidth: rem( 200px );

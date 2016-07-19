@@ -16,6 +16,10 @@ main#pageContent {
 
 	transform: translate( ( $fullWidth * 0.5 - ( $fullWidth - $mainColMaxWidth ) ) * -1, 0 );
 	max-width: $mainColMaxWidth;
+	
+	img {
+		max-width: 100%;
+	}
 
 	@include small {
 		transform: translate( $mainColMaxWidth * -0.5 );

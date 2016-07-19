@@ -1,0 +1,93 @@
+$_spriteTopOffset: px( $navLineHeight ) - 60px;
+$_spriteLeftOffset: px( $navIndent ) - 50px;
+nav {
+	position: relative;
+
+	ul {
+		position: relative;
+		background-color: $lightFontColor;
+	}
+
+	li {
+		position: relative;
+		height: $navLineHeight;
+		margin: 0 0 0 $navIndent;
+
+		line-height: $navLineHeight;
+		background-color: white;
+	}
+
+	a {
+		color: $fontColor;
+		text-decoration: none;
+
+		&:hover {
+			color: $fontHeavyColor;
+		}
+	}
+
+	// current navigation
+	li.selected {
+		&:before {
+			background-color: $fontHeavyColor;
+		}
+		a {
+			color: $fontHeavyColor;
+		}
+	}
+
+	// upcomming navigation
+	li.selected ~ li {
+		&:before {
+			background-color: transparent;
+		}
+		a {
+			color: $lightFontColor;
+		}
+	}
+
+	// --- blobbs --- //
+	li {
+		&:before {
+			position: absolute;
+			content: "";
+			width: $navIndent;
+			height: $navLineHeight;
+			margin-left: $navIndent * -1;
+
+			background-color: $lightFontHeavyColor;
+			background-image: url( '../images/blobbs.png' );
+			background-position: $_spriteLeftOffset center;
+		}
+		&:first-child:before {
+			background-position: ( $_spriteLeftOffset + 50px ) center;
+		}
+		&:last-child:before {
+			background-position: ( $_spriteLeftOffset + 100px ) center;
+		}
+	}
+
+	// current blobb
+	&:before {
+		content: "";
+		display: block;
+		position: absolute;
+		height: $navLineHeight;
+		width: $navIndent;
+		background-color: $fontHeavyColor;
+	}
+}
+
+
+// --- Logo --- //
+.logo {
+	margin-top: $gridGutterHeight;
+	height: $gridBaseLineHeight * 4;
+
+	text-indent: -10000px;
+
+	background:  url( '../images/forscher.png' );
+	background-position: 13px center; // optically align with navigation
+	background-repeat: no-repeat;
+	background-size: contain;
+}
