@@ -7,7 +7,16 @@ $gridBaseLineHeight: rem( 32px );
 $gridGutterHeight: $gridBaseLineHeight;
 $gridGutterWidth: $gridGutterHeight;
 
+// --- base animation values --- //
+$fadeInAnimation: easeIn;
+$fadeInDuration: 200ms;
+$fadeOutAnimation: easeOut;
+$fadeOutDuration: 200ms;
+
+
 // --- Typography ------- //
+$corporateColor: #E84D1D;
+
 $fontColor: #333;
 $fontFamily: 'Open Sans', sans-serif;
 $fontSize: $gridBaseFontSize;
@@ -36,24 +45,34 @@ $headingFontSize: rem( 22px );
 $headingfontHeavyWeight: 600;
 $headingFontLineHeight: $fontLineHeight;
 $headingMultiplier: 1.25;
+$headingFontMultiplier: $headingMultiplier;
+$headingLineHeightMultiplier: 1.1;
 $headingBaseLevel: 4;
 
+$linkColor: $fontHeavyColor;
+$linkHoverColor: $corporateColor;
+
+// --- Layout ------ //
+$leftColWidth: rem( 200px );
+$mainColMaxWidth: rem( 600px );
+$fullWidth: $mainColMaxWidth + $gridGutterWidth + $leftColWidth;
+$smallWidth: px( $fullWidth + 2 * $gridGutterWidth );
+$xsmallWidth: px( $mainColMaxWidth + 2 * $gridGutterWidth );
+
+// --- Lists --- //
 $listIndent: $gridGutterWidth * 0.5;
 
+// --- Quote --- //
 $quoteIndent: $gridGutterWidth * 0.5;
 $quoteCiteIndent: 20px; // manually adjusted to fit em dash in the cite font size
 
 // --- Navigation --- //
 $navIndent: $gridGutterWidth;
 $navLineHeight: $fontLineHeight * 1.2;
+$navLineBackgroundColor: mix( white, $lightFontColor, 80% );
 
-// --- Vars ------ //
-
-$leftColWidth: rem( 200px );
-$mainColMaxWidth: rem( 600px );
-$fullWidth: $mainColMaxWidth + $gridGutterWidth + $leftColWidth;
-$smallWidth: px( $fullWidth + 2 * $gridGutterWidth );
-$xsmallWidth: px( $mainColMaxWidth + 2 * $gridGutterWidth );
+// --- Work --- //
+$workHeaderImgWidth: rem( 200px );
 
 // bower:scss
 // endbower

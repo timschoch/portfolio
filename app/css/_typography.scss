@@ -34,6 +34,14 @@ strong {
     font-family: $fontHeavyFamily;
     font-weight: $fontHeavyWeight;
 }
+a {
+    color: $linkColor;
+    text-decoration: none;
+    
+    &:hover {
+        color: $linkHoverColor;
+    }
+}
 
 /* --- Title --- */
 h1, h2, h3, h4 {
@@ -59,8 +67,8 @@ h1, h2, h3, h4 {
         margin-top: $_margin-top;
         margin-bottom: $_margin-top % $gridGutterHeight;
 
-        font-size: $headingFontSize * $headingMultiplier * $_multiplier;
-        line-height: $headingFontLineHeight * $headingMultiplier * $_multiplier;
+        font-size: $headingFontSize * $headingFontMultiplier * $_multiplier;
+        line-height: $headingFontLineHeight * $headingLineHeightMultiplier * $_multiplier;
     }
 }
 p {

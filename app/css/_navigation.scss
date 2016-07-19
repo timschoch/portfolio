@@ -5,7 +5,7 @@ nav {
 
 	ul {
 		position: relative;
-		background-color: $lightFontColor;
+		background-color: $navLineBackgroundColor;
 	}
 
 	li {
@@ -29,7 +29,7 @@ nav {
 	// current navigation
 	li.selected {
 		&:before {
-			background-color: $fontHeavyColor;
+			background-color: $corporateColor;
 		}
 		a {
 			color: $fontHeavyColor;

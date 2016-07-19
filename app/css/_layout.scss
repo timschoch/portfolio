@@ -15,8 +15,9 @@ main#pageContent {
 	left: 50%;
 
 	transform: translate( ( $fullWidth * 0.5 - ( $fullWidth - $mainColMaxWidth ) ) * -1, 0 );
+	width: $mainColMaxWidth;
 	max-width: $mainColMaxWidth;
-	
+
 	img {
 		max-width: 100%;
 	}
@@ -29,6 +30,8 @@ main#pageContent {
 		left: auto;
 		margin: 0 $gridGutterWidth;
 		transform: none;
+		width: auto;
+		max-width: 1000px;
 	}
 }
 section {

@@ -8,6 +8,11 @@
 		@content;
 	}
 }
+@mixin xsmall {
+	@include breakpoint( $xsmallWidth ) {
+		@content;
+	}
+}
 @mixin breakpoint ( $maxWidth ) {
 	@at-root {
 		@media only screen and ( max-width: $maxWidth ) {
@@ -15,5 +20,24 @@
 				@content;
 			}
 		}
+	}
+}
+
+// helper classes
+.large {
+	@include small {
+		display: none;
+	}
+}
+.small {
+	display: none;
+	@include small {
+		display: block;
+	}
+}
+.xsmall {
+	display: none;
+	@include xsmall {
+		display: block;
 	}
 }
