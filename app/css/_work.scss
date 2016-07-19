@@ -3,7 +3,7 @@
 		margin: $gridGutterHeight 0;
 		padding-bottom: $gridGutterHeight;
 
-		border-bottom: 1px solid $lightFontColor;
+		border-bottom: 1px solid $workDividerColor;
 
 		header {
 			display: flex;
@@ -11,7 +11,7 @@
 			align-content: flex-start;
 			justify-content: flex-start;
 
-			@include xsmall {
+			@include bp-xsmall {
 				display: block;
 			}
 
@@ -24,6 +24,7 @@
 
 
 			h3 {
+				@extend %a;
 				margin: 0;
 			}
 			.methods {
@@ -45,7 +46,8 @@
 					}
 				}
 			}
-			.more {
+			.more,
+			.less {
 				@extend %small;
 				font-size: 60%;
 				line-height: 1;
@@ -53,13 +55,32 @@
 
 				display: inline-block;
 				padding: 2px 5px;
-				margin-left: 20px;
+				margin-left: $gridGutterWidth * .5;
 
-				border: 1px solid #ccc;
+				border: 1px solid $workDividerColor;
 				border-radius: 3px;
+
+				transition: color $fadeOutDuration,
+					border-color $fadeOutDuration;
 
 				&:before {
 					content: ' » ';
+					vertical-align: 1px;
+				}
+
+				&:hover {
+					color: $corporateColor;
+
+					transition: color $fadeInDuration,
+						border-color $fadeInDuration;
+				}
+			}
+
+			.less {
+				display: none;
+
+				&:before {
+					content: ' « ';
 				}
 			}
 
@@ -69,6 +90,7 @@
 
 				h3 {
 					color: $corporateColor;
+					@extend %aHover;
 				}
 				a {
 					border-color: $corporateColor;
@@ -76,13 +98,26 @@
 			}
 		}
 
+		// detail styling
 		details {
 			margin-top: $gridGutterHeight;
 			display: none;
 		}
 
-		&.selected details {
-			display: block;
+
+		// selected styling
+		&.selected {
+			header {
+				.more {
+					display: none;
+				}
+				.less {
+					display: inline-block;
+				}
+			}
+			details {
+				display: block;
+			}
 		}
 	}
 }

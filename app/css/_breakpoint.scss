@@ -1,14 +1,14 @@
-@mixin small {
+@mixin bp-small {
 	@include breakpoint( $smallWidth ) {
 		@content;
 	}
 }
-@mixin xsmall {
+@mixin bp-xsmall {
 	@include breakpoint( $xsmallWidth ) {
 		@content;
 	}
 }
-@mixin xsmall {
+@mixin bp-xsmall {
 	@include breakpoint( $xsmallWidth ) {
 		@content;
 	}
@@ -24,20 +24,20 @@
 }
 
 // helper classes
-.large {
-	@include small {
+.bpLarge {
+	@include bp-small {
 		display: none;
 	}
 }
-.small {
+.bpSmall {
 	display: none;
-	@include small {
+	@include bp-small {
 		display: block;
 	}
 }
-.xsmall {
+.bpXsmall {
 	display: none;
-	@include xsmall {
+	@include bp-xsmall {
 		display: block;
 	}
 }

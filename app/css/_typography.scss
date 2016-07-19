@@ -11,7 +11,13 @@
     color: $smallfontHeavyColor;
     font-weight: $smallfontHeavyWeight;
 }
-
+.small {
+    @extend %small;
+    > b,
+    > strong {
+        @extend %smallHeavy;
+    }
+}
 
 /* --- Styling -- */
 html {
@@ -22,10 +28,10 @@ html {
     line-height: $fontLineHeight;
     //letter-spacing: 0.1px;
 
-    @include small {
+    @include bp-small {
         font-size: $gridBaseFontSize * 0.9;
     }
-    @include xsmall {
+    @include bp-xsmall {
         font-size: $gridBaseFontSize * 0.8;
     }
 }
@@ -34,12 +40,31 @@ strong {
     font-family: $fontHeavyFamily;
     font-weight: $fontHeavyWeight;
 }
-a {
+%aHover {
+        color: $linkHoverColor;
+
+        transition: color $fadeInDuration;
+}
+%a {
     color: $linkColor;
     text-decoration: none;
-    
+
+    transition: color $fadeOutDuration;
+
     &:hover {
-        color: $linkHoverColor;
+        @extend %aHover;
+    }
+}
+a {
+    @extend %a;
+}
+main#pageContent a {
+    border-bottom: 3px solid $lightBackgroundColor;
+    transition: border-color $fadeOutDuration;
+
+    &:hover {
+        border-color: $corporateColor;
+        transition: border-color $fadeInDuration;
     }
 }
 

@@ -5,7 +5,7 @@ header#pageHeader {
 	min-height: 100%;
 	width: $leftColWidth;
 
-	@include small {
+	@include bp-small {
 		background: red;
 		display: none;
 	}
@@ -22,10 +22,10 @@ main#pageContent {
 		max-width: 100%;
 	}
 
-	@include small {
+	@include bp-small {
 		transform: translate( $mainColMaxWidth * -0.5 );
 	}
-	@include xsmall {
+	@include bp-xsmall {
 		position: relative;
 		left: auto;
 		margin: 0 $gridGutterWidth;

@@ -9,7 +9,7 @@ $gridGutterWidth: $gridGutterHeight;
 
 // --- base animation values --- //
 $fadeInAnimation: easeIn;
-$fadeInDuration: 200ms;
+$fadeInDuration: 50ms;
 $fadeOutAnimation: easeOut;
 $fadeOutDuration: 200ms;
 
@@ -30,6 +30,7 @@ $fontHeavyWeight: 600;
 $lightOpacity: 0.5;
 $lightFontColor: mix( white, $fontColor, $lightOpacity * 100 );
 $lightFontHeavyColor: mix( $fontColor, $lightFontColor, 30% );
+$lightBackgroundColor: mix( white, $lightFontColor, 80% );
 
 $smallFontColor: $lightFontColor;
 $smallFontFamily: $fontFamily;
@@ -69,10 +70,12 @@ $quoteCiteIndent: 20px; // manually adjusted to fit em dash in the cite font siz
 // --- Navigation --- //
 $navIndent: $gridGutterWidth;
 $navLineHeight: $fontLineHeight * 1.2;
-$navLineBackgroundColor: mix( white, $lightFontColor, 80% );
+$navLineBackgroundColor: $lightBackgroundColor;
+$navLinePassedBackgroundColor: $lightFontHeavyColor;
 
 // --- Work --- //
 $workHeaderImgWidth: rem( 200px );
+$workDividerColor: $lightBackgroundColor;
 
 // bower:scss
 // endbower
