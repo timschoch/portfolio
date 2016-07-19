@@ -18,6 +18,18 @@ $fontHeavyColor: #000;
 $fontHeavyFamily: $fontFamily;
 $fontHeavyWeight: 600;
 
+$lightOpacity: 0.5;
+$lightFontColor: mix( white, $fontColor, $lightOpacity * 100 );
+$lightFontHeavyColor: mix( $fontColor, $lightFontColor, 30% );
+
+$smallFontColor: $lightFontColor;
+$smallFontFamily: $fontFamily;
+$smallFontSize: rem( $fontSize * 0.8 );
+$smallFontWeight: 300;
+$smallFontLineHeight: $fontLineHeight * 0.8;
+$smallfontHeavyColor: $lightFontHeavyColor;
+$smallfontHeavyWeight: 400;
+
 $headingFontColor: $fontHeavyColor;
 $headingFontFamily: 'Assistant', sans-serif;
 $headingFontSize: rem( 22px );
@@ -28,11 +40,16 @@ $headingBaseLevel: 4;
 
 $listIndent: $gridGutterWidth * 0.5;
 
+$quoteIndent: $gridGutterWidth * 0.5;
+$quoteCiteIndent: 20px; // manually adjusted to fit em dash in the cite font size
+
 // --- Vars ------ //
 
 $leftColWidth: rem( 200px );
 $mainColMaxWidth: rem( 600px );
 $fullWidth: $mainColMaxWidth + $gridGutterWidth + $leftColWidth;
+$smallWidth: px( $fullWidth + 2 * $gridGutterWidth );
+$xsmallWidth: px( $mainColMaxWidth + 2 * $gridGutterWidth );
 
 // bower:scss
 // endbower

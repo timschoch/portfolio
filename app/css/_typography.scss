@@ -1,4 +1,19 @@
+/* --- Placeholders --- */
+%small {
+    color: $smallFontColor;
+    font-family: $smallFontFamily;
+    font-size: $smallFontSize;
+    font-weight: $smallFontWeight;
+    line-height: $smallFontLineHeight;
+}
+%smallHeavy {
+    @extend %small;
+    color: $smallfontHeavyColor;
+    font-weight: $smallfontHeavyWeight;
+}
 
+
+/* --- Styling -- */
 html {
     color: $fontColor;
     font-family: $fontFamily;
@@ -6,6 +21,13 @@ html {
     font-weight: $fontWeight;
     line-height: $fontLineHeight;
     //letter-spacing: 0.1px;
+
+    @include small {
+        font-size: $gridBaseFontSize * 0.9;
+    }
+    @include xsmall {
+        font-size: $gridBaseFontSize * 0.8;
+    }
 }
 strong {
     color: $fontHeavyColor;
@@ -69,3 +91,57 @@ ul {
 }
 
 /* --- Quotes --- */
+blockquote {
+    margin: $gridGutterHeight * .5 $quoteIndent;
+    > p:first-of-type:before,
+    > p:last-of-type:after {
+        display: inline-block;
+        width: $quoteIndent;
+
+        color: $lightFontColor;
+        font-weight: 300;
+        font-size: 120%;
+    }
+
+    > p:first-of-type:before {
+        content: '«';
+        margin-left: $quoteIndent * -1;
+    }
+    > p:last-of-type:after {
+        content: '»';
+        text-align: right;
+    }
+    footer {
+        @extend %small;
+        cite {
+            display: block;
+            padding-left: $quoteCiteIndent;
+
+            color: $lightFontColor;
+            font-weight: 300;
+
+            span {
+                @extend %smallHeavy;
+                white-space: nowrap;
+            }
+            .name {
+                &:before {
+                    content: '—';
+                    display: inline-block;
+                    width: $quoteCiteIndent;
+                    margin-left: $quoteCiteIndent * -1;
+                }
+            }
+            .jobtitle:before {
+                content: "";
+                display: block;
+            }
+            .company {
+                white-space: inherit;
+            }
+        }
+    }
+}
+blockquote + blockquote {
+    margin-top: $gridGutterHeight * 2;
+}

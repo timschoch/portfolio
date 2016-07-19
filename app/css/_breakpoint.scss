@@ -1,0 +1,19 @@
+@mixin small {
+	@include breakpoint( $smallWidth ) {
+		@content;
+	}
+}
+@mixin xsmall {
+	@include breakpoint( $xsmallWidth ) {
+		@content;
+	}
+}
+@mixin breakpoint ( $maxWidth ) {
+	@at-root {
+		@media only screen and ( max-width: $maxWidth ) {
+			& {
+				@content;
+			}
+		}
+	}
+}

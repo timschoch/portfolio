@@ -4,6 +4,11 @@ header#pageHeader {
 	transform: translate( $fullWidth * -0.5, 0 );
 	min-height: 100%;
 	width: $leftColWidth;
+
+	@include small {
+		background: red;
+		display: none;
+	}
 }
 main#pageContent {
 	position: absolute;
@@ -11,6 +16,16 @@ main#pageContent {
 
 	transform: translate( ( $fullWidth * 0.5 - ( $fullWidth - $mainColMaxWidth ) ) * -1, 0 );
 	max-width: $mainColMaxWidth;
+
+	@include small {
+		transform: translate( $mainColMaxWidth * -0.5 );
+	}
+	@include xsmall {
+		position: relative;
+		left: auto;
+		margin: 0 $gridGutterWidth;
+		transform: none;
+	}
 }
 section {
 	min-height: 500px;
