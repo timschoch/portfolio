@@ -1,0 +1,47 @@
+#home {
+	padding-top: 0;
+	// height: 80vh;
+
+	.poster {
+		min-height: #{$posterMinHeight};
+		height: 600px;
+		overflow: hidden;
+
+		text-align: center;
+		background-image: url( 'http://dummyimage.com/600x800&text=+' );
+
+			@include bp-small {
+				height: auto;
+				min-height: #{$posterSmallMinHeight};
+			}
+			@include bp-xsmall {
+				min-height: #{$posterXsmallMinHeight};
+			}
+	}
+
+	.posterContent {
+		padding: $posterPaddingTop $posterPaddingHorizontal $posterPaddingBottom $posterPaddingHorizontal;
+
+		h1,
+		h2,
+		h3 {
+			margin: 0;
+		}
+		&.posterLarge {
+			@include bp-xsmall {
+				display: none;
+			}
+		}
+		&.posterXsmall {
+			display: none;
+
+			// padding-top: $gridGutterHeight * 2;
+			//min-height: 400px;
+			// min-height: 60vh;
+			@include bp-xsmall {
+				display: block;
+			}
+		}
+	}
+
+}

@@ -29,6 +29,8 @@ $fontHeavyWeight: 600;
 
 $lightOpacity: 0.5;
 $lightFontColor: mix( white, $fontColor, $lightOpacity * 100 );
+$lightFontWeight: 400;
+$lightFontStyle: italic;
 $lightFontHeavyColor: mix( $fontColor, $lightFontColor, 30% );
 $lightBackgroundColor: mix( white, $lightFontColor, 80% );
 
@@ -72,6 +74,17 @@ $navIndent: $gridGutterWidth;
 $navLineHeight: $fontLineHeight * 1.2;
 $navLineBackgroundColor: $lightBackgroundColor;
 $navLinePassedBackgroundColor: $lightFontHeavyColor;
+$navSmallHeight: $gridBaseLineHeight * 2;
+
+// --- home --- //
+$posterMinHeight: 60vh;
+$posterSmallMinHeight: 70vh;
+$posterXsmallMinHeight: 60vh;
+$posterPaddingTop: $gridGutterHeight * 5.5;
+$posterPaddingBottom: $gridGutterHeight * 4;
+$posterPaddingHorizontal: $gridGutterHeight * 0.5;
+
+
 
 // --- Work --- //
 $workHeaderImgWidth: rem( 200px );

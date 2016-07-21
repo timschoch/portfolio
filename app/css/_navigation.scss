@@ -5,16 +5,17 @@ nav {
 
 	ul {
 		position: relative;
-		background-color: $navLineBackgroundColor;
 	}
 
 	li {
 		position: relative;
 		height: $navLineHeight;
-		margin: 0 0 0 $navIndent;
+		margin: 0;
 
 		line-height: $navLineHeight;
-		background-color: white;
+		&:before {
+			display: none;
+		}
 	}
 
 	a {
@@ -27,57 +28,96 @@ nav {
 	}
 
 	// current navigation
-	li.selected {
-		&:before {
-			background-color: $corporateColor;
-		}
-		a {
-			color: $fontHeavyColor;
-		}
+	li.selected a {
+		color: $fontHeavyColor;
 	}
 
 	// upcomming navigation
-	li.selected ~ li {
-		&:before {
-			background-color: transparent;
-		}
-		a {
-			color: $lightFontColor;
-		}
-	}
-
-	// --- blobbs --- //
-	li {
-		&:before {
-			position: absolute;
-			content: "";
-			width: $navIndent;
-			height: $navLineHeight;
-			margin-left: $navIndent * -1;
-
-			background-color: $lightFontHeavyColor;
-			background-image: url( '../images/blobbs.png' );
-			background-position: $_spriteLeftOffset center;
-		}
-		&:first-child:before {
-			background-position: ( $_spriteLeftOffset + 50px ) center;
-		}
-		&:last-child:before {
-			background-position: ( $_spriteLeftOffset + 100px ) center;
-		}
-	}
-
-	// current blobb
-	&:before {
-		content: "";
-		display: block;
-		position: absolute;
-		height: $navLineHeight;
-		width: $navIndent;
-		background-color: $fontHeavyColor;
+	li.selected ~ li a {
+		color: $lightFontColor;
 	}
 }
 
+// --- desktop nav --- //
+nav {
+	@include bp-large {
+		ul {
+			// position: relative;
+			background-color: $navLineBackgroundColor;
+		}
+
+		li {
+			//position: relative;
+			//height: $navLineHeight;
+			margin-left: $navIndent;
+
+			//line-height: $navLineHeight;
+			background-color: white;
+		}
+
+		// current navigation
+		li.selected {
+			&:before {
+				background-color: $corporateColor;
+			}
+		}
+
+		// upcomming navigation
+		li.selected ~ li {
+			&:before {
+				background-color: transparent;
+			}
+		}
+
+		// --- blobbs --- //
+		li {
+			&:before {
+				display: block;
+				position: absolute;
+				content: "";
+				width: $navIndent;
+				height: $navLineHeight;
+				margin-left: $navIndent * -1;
+
+				background-color: $lightFontHeavyColor;
+				background-image: url( '../images/blobbs.png' );
+				background-position: $_spriteLeftOffset center;
+			}
+			&:first-child:before {
+				background-position: ( $_spriteLeftOffset + 50px ) center;
+			}
+			&:last-child:before {
+				background-position: ( $_spriteLeftOffset + 100px ) center;
+			}
+		}
+
+		// current blobb
+		// &:before {
+		// 	content: "";
+		// 	display: block;
+		// 	position: absolute;
+		// 	height: $navLineHeight;
+		// 	width: $navIndent;
+		// 	background-color: $fontHeavyColor;
+		// }
+	}
+}
+
+// --- mobile nav --- //
+nav {
+	@include bp-small {
+		margin-left: $gridGutterWidth;
+
+		ul {
+			margin: 0;
+
+			li:before {
+				display: none;
+				margin-left: 0;
+			}
+		}
+	}
+}
 
 // --- Logo --- //
 .logo {
@@ -90,4 +130,13 @@ nav {
 	background-position: 13px center; // optically align with navigation
 	background-repeat: no-repeat;
 	background-size: contain;
+
+	@include bp-small {
+		margin-top: rem( 10px );
+		margin-left: $gridGutterWidth * 0.25;
+		height: $navSmallHeight - rem( 20px );
+		width: rem( 45px );
+		background-size: cover;
+		background-position: top center;
+	}
 }

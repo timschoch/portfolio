@@ -6,8 +6,25 @@ header#pageHeader {
 	width: $leftColWidth;
 
 	@include bp-small {
-		background: red;
-		display: none;
+		display: flex;
+		
+		top: 0;
+		height: $navSmallHeight;
+		min-height: 1px;
+		width: $mainColMaxWidth;
+		transform: translate( $mainColMaxWidth * -0.5, 0 );
+		z-index: 1;
+		overflow: hidden;
+
+		background: #ffffff;
+		border-bottom: 1px solid $navLinePassedBackgroundColor;
+	}
+	@include bp-xsmall {
+		left: 0;
+		right: 0;
+		padding: 0 $gridGutterWidth;
+		transform: none;
+		width: auto;
 	}
 }
 main#pageContent {
@@ -23,17 +40,32 @@ main#pageContent {
 	}
 
 	@include bp-small {
+		margin-top: $navSmallHeight;
 		transform: translate( $mainColMaxWidth * -0.5 );
 	}
 	@include bp-xsmall {
 		position: relative;
 		left: auto;
-		margin: 0 $gridGutterWidth;
+		margin: $navSmallHeight $gridGutterWidth 0;
 		transform: none;
 		width: auto;
 		max-width: 1000px;
 	}
 }
 section {
+	padding-top: $gridGutterHeight * 5;
 	min-height: 500px;
+
+	> h1:first-child,
+	> h2:first-child {
+		margin-top: 0;
+	}
+
+
+	@include bp-small {
+		padding-top: $gridGutterHeight * 4;
+	}
+	@include bp-xsmall {
+		padding-top: $gridGutterHeight * 3;
+	}
 }

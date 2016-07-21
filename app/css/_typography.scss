@@ -1,4 +1,4 @@
-/* --- Placeholders --- */
+/* --- Placeholders and base classes --- */
 %small {
     color: $smallFontColor;
     font-family: $smallFontFamily;
@@ -16,6 +16,23 @@
     > b,
     > strong {
         @extend %smallHeavy;
+    }
+}
+%light {
+    color: $lightFontColor;
+    font-weight: $lightFontWeight;
+    font-style: $lightFontStyle;
+}
+%lightHeavy {
+    @extend %light;
+    color: $lightFontHeavyColor;
+}
+.light {
+    @extend %light;
+    > b,
+    > strong,
+    > a {
+        @extend %lightHeavy;
     }
 }
 
@@ -147,11 +164,11 @@ blockquote {
     footer {
         @extend %small;
         cite {
+            @extend %light;
+
             display: block;
             padding-left: $quoteCiteIndent;
 
-            color: $lightFontColor;
-            font-weight: 300;
 
             span {
                 @extend %smallHeavy;
@@ -185,6 +202,7 @@ figure {
 
     figcaption {
         @extend %small;
+        @extend %light;
     }
 }
 
