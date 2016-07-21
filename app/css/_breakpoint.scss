@@ -1,3 +1,8 @@
+@mixin bp-large {
+	@include breakpoint( $minWidth: $smallWidth + 1 ) {
+		@content;
+	}
+}
 @mixin bp-small {
 	@include breakpoint( $smallWidth ) {
 		@content;
@@ -8,36 +13,21 @@
 		@content;
 	}
 }
-@mixin bp-xsmall {
-	@include breakpoint( $xsmallWidth ) {
-		@content;
+@mixin breakpoint ( $maxWidth: null, $minWidth: null ) {
+	@if null == $minWidth and null == $maxWidth {
+		@at-root {
+			@media only screen {
+				& {
+					@content;
+				}
+			}
+		}
 	}
-}
-@mixin breakpoint ( $maxWidth ) {
 	@at-root {
 		@media only screen and ( max-width: $maxWidth ) {
 			& {
 				@content;
 			}
 		}
-	}
-}
-
-// helper classes
-.bpLarge {
-	@include bp-small {
-		display: none;
-	}
-}
-.bpSmall {
-	display: none;
-	@include bp-small {
-		display: block;
-	}
-}
-.bpXsmall {
-	display: none;
-	@include bp-xsmall {
-		display: block;
 	}
 }
