@@ -5,6 +5,24 @@
 @function px( $rem, $base: $gridBaseFontSize ) {
 	@return ( $rem / 1rem ) * $base;
 }
+
+// --- breakpoint wrappers --- //
+@mixin bp-large {
+  @include breakpoint ( $smallWidth + 1 ) {
+    @content;
+  }
+}
+@mixin bp-small {
+  @include breakpoint ( max-width $smallWidth ) {
+    @content;
+  }
+}
+@mixin bp-xsmall {
+  @include breakpoint ( max-width $xsmallWidth ) {
+    @content;
+  }
+}
+
 /*
 see: https://jdsteinbach.com/css/snippet-animate-display-transform/
 @mixin grow {

@@ -7,7 +7,7 @@ header#pageHeader {
 
 	@include bp-small {
 		display: flex;
-		
+
 		top: 0;
 		height: $navSmallHeight;
 		min-height: 1px;
