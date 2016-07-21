@@ -1,5 +1,7 @@
 $_spriteTopOffset: px( $navLineHeight ) - 60px;
 $_spriteLeftOffset: px( $navIndent ) - 50px;
+
+// --- default nav styling --- //
 nav {
 	position: relative;
 
@@ -13,8 +15,11 @@ nav {
 		margin: 0;
 
 		line-height: $navLineHeight;
-		&:before {
+		&:before,
+		&:after {
+			@extend %light;
 			display: none;
+			font-style: normal;
 		}
 	}
 
@@ -111,10 +116,107 @@ nav {
 		ul {
 			margin: 0;
 
-			li:before {
-				display: none;
-				margin-left: 0;
+			li {
+				display: inline-block;
+				overflow: hidden;
+				max-width: 0;
+
+				text-align: right;
+				line-height: $navSmallInnerHeight;
+				white-space: nowrap;
+
+				transition: max-width .5s;
+
+				a {
+					height: $navSmallInnerHeight;
+					padding: 0 rem( 5px );
+					margin: 0 rem( 5px );
+
+					white-space: nowrap;
+				}
+
+				&:before,
+				&:after {
+					display: inline-block;
+					content: "«";
+					width: rem( 15px );
+					text-align: center;
+					margin: 0;
+				}
+				// past navigations (these is the default state as there is now prev sibling selector in css
+				&:after {
+					display: none;
+				}
+				// hide arrows on first and last element
+				&:first-child:before,
+				&:last-child:after {
+					display: none;
+				}
 			}
+
+			// prev navigation
+			li.prev {
+				max-width: rem( 147px );
+				transition: max-width .5s;
+				&:before {
+					// width: 0;
+					// overflow: hidden;
+				}
+			}
+
+			// current navigation
+			li.selected {
+				max-width: rem( 147px );
+				transition: max-width .5s;
+				a {
+					color: $corporateColor;
+				}
+				&:before,
+				&:after {
+					display: inline-block;
+				}
+				&:after {
+					content: "»";
+				}
+				&:first-child:before {
+					display: none;
+				}
+				&:last-child:after {
+					display: none;
+				}
+			}
+
+			// next navigation
+			li.selected + li {
+				max-width: rem( 147px );
+				//transition: max-width .5s;
+				&:before {
+					display: none;
+				}
+			}
+
+			// upcomming navigation
+			li.selected ~ li {
+				text-align: left;
+				&:before {
+					display: none;
+				}
+				&:after {
+					display: inline;
+					content: "»";
+				}
+				&:last-child:after {
+					display: none;
+				}
+			}
+
+
+
+
+			// upcomming navigation
+			// li.selected ~ li {
+			// 	display: inline-block;
+			// }
 		}
 	}
 }
@@ -132,10 +234,12 @@ nav {
 	background-size: contain;
 
 	@include bp-small {
-		margin-top: rem( 10px );
+		flex-shrink: 0;
+		margin-top: 0;
 		margin-left: $gridGutterWidth * 0.25;
-		height: $navSmallHeight - rem( 20px );
+		height: 100%;
 		width: rem( 45px );
+
 		background-size: cover;
 		background-position: top center;
 	}

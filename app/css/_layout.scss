@@ -9,12 +9,12 @@ header#pageHeader {
 		display: flex;
 
 		top: 0;
-		height: $navSmallHeight;
+		padding: $navSmallVerticalPadding 0;
+		height: $navSmallInnerHeight;
 		min-height: 1px;
 		width: $mainColMaxWidth;
 		transform: translate( $mainColMaxWidth * -0.5, 0 );
 		z-index: 1;
-		overflow: hidden;
 
 		background: #ffffff;
 		border-bottom: 1px solid $navLinePassedBackgroundColor;
@@ -22,7 +22,7 @@ header#pageHeader {
 	@include bp-xsmall {
 		left: 0;
 		right: 0;
-		padding: 0 $gridGutterWidth;
+		padding: $navSmallVerticalPadding $gridGutterWidth;
 		transform: none;
 		width: auto;
 	}
@@ -40,13 +40,13 @@ main#pageContent {
 	}
 
 	@include bp-small {
-		margin-top: $navSmallHeight;
+		padding-top: $navSmallHeight;
 		transform: translate( $mainColMaxWidth * -0.5 );
 	}
 	@include bp-xsmall {
 		position: relative;
 		left: auto;
-		margin: $navSmallHeight $gridGutterWidth 0;
+		padding: $navSmallHeight $gridGutterWidth 0;
 		transform: none;
 		width: auto;
 		max-width: 1000px;

@@ -26,6 +26,10 @@
 			h3 {
 				@extend %a;
 				margin: 0;
+
+				@include bp-xsmall {
+					margin-top: $gridGutterHeight * 0.5;
+				}
 			}
 			.methods {
 				@extend %light;

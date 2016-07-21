@@ -75,6 +75,8 @@ $navLineHeight: $fontLineHeight * 1.2;
 $navLineBackgroundColor: $lightBackgroundColor;
 $navLinePassedBackgroundColor: $lightFontHeavyColor;
 $navSmallHeight: $gridBaseLineHeight * 2;
+$navSmallVerticalPadding: rem( 10px );
+$navSmallInnerHeight: $navSmallHeight - $navSmallVerticalPadding;
 
 // --- home --- //
 $posterMinHeight: 60vh;
