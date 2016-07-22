@@ -35,6 +35,11 @@
         @extend %lightHeavy;
     }
 }
+%icon {
+    @extend .fa;
+    font-size: 80%;
+    color: $lightFontColor;
+}
 
 /* --- Styling -- */
 html {

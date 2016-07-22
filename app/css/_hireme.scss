@@ -1,0 +1,26 @@
+#hireme {
+	.contact {
+		li {
+			&:before {
+				@extend %icon;
+				width: rem( 24px );
+				margin-right: 5px;
+			}
+			&.email:before {
+				content: '\f003'; // .fa-envelope-o
+			}
+			&.skype:before {
+				content: '\f17e'; // .fa-skype
+			}
+			&.linkedin:before {
+				content: '\f0e1'; // .fa-linkedin
+			}
+			&.twitter:before {
+				content: '\f099'; // .fa-twitter
+			}
+			&.pdf:before {
+				content: '\f1c1'; // .fa-file-pdf-o
+			}
+		}
+	}
+}
