@@ -46,12 +46,16 @@ for (var i = 0; i < waypoints.length; i++) {
 }
 
  /* work */
-$('#work article header').click(function () {
+$('#work article header').click(function (e) {
+	e.preventDefault();
+
 	$(this).parent().toggleClass('selected');
+	// make sure the refresh happens after the details are fully visible
 	setTimeout(function () {
 		Waypoint.refreshAll();
 	}, 1000);
 
+	return false;
 });
 
 
