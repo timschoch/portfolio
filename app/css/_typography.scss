@@ -40,6 +40,11 @@
     font-size: 80%;
     color: $lightFontColor;
 }
+.icon {
+    @extend %icon;
+    margin-right: 5px;
+    margin-left: 5px;
+}
 
 /* --- Styling -- */
 html {

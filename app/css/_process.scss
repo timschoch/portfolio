@@ -1,0 +1,8 @@
+#process {
+	h2 + figure {
+		margin: $gridGutterHeight * 1.5 0;
+		figcaption {
+			margin-top: $gridGutterHeight;
+		}
+	}
+}
