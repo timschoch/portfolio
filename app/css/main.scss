@@ -93,6 +93,9 @@ $workHeaderImgWidth: rem( 200px );
 $workDividerColor: $lightBackgroundColor;
 
 // bower:scss
+@import "bower_components/sassy-maps/sass/_sassy-maps.scss";
+@import "bower_components/breakpoint-sass/stylesheets/_breakpoint.scss";
+@import "bower_components/components-font-awesome/scss/font-awesome.scss";
 // endbower
 
 @import 'scaffolding';
