@@ -30,15 +30,20 @@ $navigationLinks.click(function (e) {
     return false;
 });
 
-var $waypoint = $('section.waypoint').waypoint(function (direction) {
-	if ('up' == direction) {
-		activateLink( $navigationLinks.filter('.' + this.element.id).parent().prev().children() );
-	} else {
-		activateLink( $navigationLinks.filter('.' + this.element.id) );
-	}
-}, {
-	offset: '25%'
-});
+var waypoints = document.getElementsByClassName('waypoint');
+for (var i = 0; i < waypoints.length; i++) {
+	new Waypoint({
+		element: waypoints[i],
+		handler: function (direction) {
+			if ('up' == direction) {
+				activateLink($navigationLinks.filter('.' + this.element.id).parent().prev().children());
+			} else {
+				activateLink($navigationLinks.filter('.' + this.element.id));
+			}
+		},
+		offset: '25%'
+	});
+}
 
  /* work */
 $('#work article header').click(function () {
