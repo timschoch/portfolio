@@ -22,7 +22,7 @@ header#pageHeader {
 	@include bp-xsmall {
 		left: 0;
 		right: 0;
-		padding: $navSmallVerticalPadding $gridGutterWidth;
+		padding: $navSmallVerticalPadding $gridGutterWidth * .5;
 		transform: none;
 		width: auto;
 	}

@@ -30,11 +30,18 @@ nav {
 		&:hover {
 			color: $fontHeavyColor;
 		}
+
+		&:before,
+		&:after {
+			@extend %light;
+			display: none;
+			font-style: normal;
+		}
 	}
 
 	// current navigation
 	li.selected a {
-		color: $fontHeavyColor;
+		color: $corporateColor;
 	}
 
 	// upcomming navigation
@@ -108,7 +115,7 @@ nav {
 	}
 }
 
-// --- mobile nav --- //
+// --- tablet and mobile nav --- //
 nav {
 	@include bp-small {
 		margin-left: $gridGutterWidth;
@@ -128,28 +135,34 @@ nav {
 				transition: max-width .5s;
 
 				a {
+					float: right;
 					height: $navSmallInnerHeight;
-					padding: 0 rem( 5px );
 					margin: 0 rem( 5px );
 
 					white-space: nowrap;
-				}
 
-				&:before,
-				&:after {
-					display: inline-block;
-					content: "«";
-					width: rem( 15px );
-					text-align: center;
-					margin: 0;
-				}
-				// past navigations (these is the default state as there is now prev sibling selector in css
-				&:after {
-					display: none;
+					&:before,
+					&:after {
+						content: "«";
+						display: inline-block;
+						padding: 0;
+						margin: 0;
+					}
+					&:before {
+						padding-right: rem( 10px );
+						text-align: left;
+					}
+					// past navigations (these is the default state as there is now prev sibling selector in css
+					&:after {
+						content: "»";
+						display: none;
+						padding-left: rem( 10px );
+						text-align: right;
+					}
 				}
 				// hide arrows on first and last element
-				&:first-child:before,
-				&:last-child:after {
+				&:first-child a:before,
+				&:last-child a:after {
 					display: none;
 				}
 			}
@@ -158,10 +171,6 @@ nav {
 			li.prev {
 				max-width: rem( 147px );
 				transition: max-width .5s;
-				&:before {
-					// width: 0;
-					// overflow: hidden;
-				}
 			}
 
 			// current navigation
@@ -170,42 +179,33 @@ nav {
 				transition: max-width .5s;
 				a {
 					color: $corporateColor;
+
+					&:before,
+					&:after {
+						display: inline-block;
+					}
 				}
-				&:before,
-				&:after {
-					display: inline-block;
-				}
-				&:after {
-					content: "»";
-				}
-				&:first-child:before {
-					display: none;
-				}
-				&:last-child:after {
+				&:first-child a:before,
+				&:last-child a:after {
 					display: none;
 				}
 			}
 
-			// next navigation
+ 			// next navigation
 			li.selected + li {
 				max-width: rem( 147px );
 				//transition: max-width .5s;
-				&:before {
-					display: none;
-				}
 			}
 
 			// upcomming navigation
 			li.selected ~ li {
-				text-align: left;
-				&:before {
+				a:before {
 					display: none;
 				}
-				&:after {
-					display: inline;
-					content: "»";
+				a:after {
+					display: inline-block;
 				}
-				&:last-child:after {
+				&:last-child a:after {
 					display: none;
 				}
 			}
@@ -218,6 +218,12 @@ nav {
 			// 	display: inline-block;
 			// }
 		}
+	}
+}
+// --- tablet and mobile nav --- //
+nav {
+	@include bp-xsmall {
+		margin-left: $gridGutterWidth * 0.5;
 	}
 }
 
@@ -243,4 +249,8 @@ nav {
 		background-size: cover;
 		background-position: top center;
 	}
+
+	@include bp-xsmall {
+		margin-left: 0;
+	}	
 }
