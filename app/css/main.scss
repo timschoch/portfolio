@@ -76,12 +76,12 @@ $navLineBackgroundColor: $lightBackgroundColor;
 $navLinePassedBackgroundColor: $lightFontHeavyColor;
 $navSmallHeight: $gridBaseLineHeight * 2;
 $navSmallVerticalPadding: rem( 10px );
-$navSmallInnerHeight: $navSmallHeight - $navSmallVerticalPadding;
+$navSmallInnerHeight: $navSmallHeight - $navSmallVerticalPadding * 2;
 
 // --- home --- //
 $posterMinHeight: 60vh;
 $posterSmallMinHeight: 70vh;
-$posterXsmallMinHeight: 60vh;
+$posterXsmallMinHeight: 50vh;
 $posterPaddingTop: $gridGutterHeight * 5.5;
 $posterPaddingBottom: $gridGutterHeight * 4;
 $posterPaddingHorizontal: $gridGutterHeight * 0.5;

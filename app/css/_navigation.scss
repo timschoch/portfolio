@@ -229,6 +229,7 @@ nav {
 
 // --- Logo --- //
 .logo {
+	display: block;
 	margin-top: $gridGutterHeight;
 	height: $gridBaseLineHeight * 4;
 
@@ -252,5 +253,5 @@ nav {
 
 	@include bp-xsmall {
 		margin-left: 0;
-	}	
+	}
 }

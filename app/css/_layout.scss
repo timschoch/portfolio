@@ -25,6 +25,7 @@ header#pageHeader {
 		padding: $navSmallVerticalPadding $gridGutterWidth * .5;
 		transform: none;
 		width: auto;
+		overflow: hidden;
 	}
 }
 main#pageContent {
@@ -54,7 +55,7 @@ main#pageContent {
 }
 section {
 	padding-top: $gridGutterHeight * 5;
-	min-height: 500px;
+	min-height: 300px;
 
 	> h1:first-child,
 	> h2:first-child {

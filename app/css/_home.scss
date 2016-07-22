@@ -3,12 +3,23 @@
 	// height: 80vh;
 
 	.poster {
+		position: relative;
 		min-height: #{$posterMinHeight};
-		height: 600px;
+		height: 500px;
 		overflow: hidden;
 
+		color: $fontHeavyColor;
 		text-align: center;
 		background-image: url( 'http://dummyimage.com/600x800&text=+' );
+		background-image: url( 'https://drscdn.500px.org/photo/160735517/q%3D80_m%3D1500/1a6f20b1961d5d718a70a9934ad77aaf' );
+		// background-image: url( 'https://drscdn.500px.org/photo/159275319/q%3D80_m%3D1500/a775faf095d26c49526d4aef7c71287f' );
+		background-image: url( 'https://drscdn.500px.org/photo/60073642/q%3D80_m%3D1500/6348ac2b4af662ecca56834721123fd6' );
+		background-image: url( 'https://drscdn.500px.org/photo/113640935/q%3D80_m%3D1500/f4c7bab77c1669d64195427fcdac8449' );
+		background-image: url( 'https://drscdn.500px.org/photo/53280618/q%3D80_m%3D1500/cffbdd908c76a25e92f6d57643baba71' );
+		background-image: url( 'https://drscdn.500px.org/photo/54587310/q%3D80_m%3D2000/6533ec615b0526150cee14ba58988ed9' );
+
+		background-position: bottom center;
+		background-size: cover;
 
 			@include bp-small {
 				height: auto;
@@ -17,6 +28,20 @@
 			@include bp-xsmall {
 				min-height: #{$posterXsmallMinHeight};
 			}
+
+		&.dark {
+			color: #FFFFFF;
+		}
+
+		&:after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: $gridGutterHeight * 2;
+			background: rgba( #fff, 0.4 );
+		}
 	}
 
 	.posterContent {
@@ -26,6 +51,10 @@
 		h2,
 		h3 {
 			margin: 0;
+			color: inherit;
+			strong {
+				color: inherit;
+			}
 		}
 		&.posterLarge {
 			@include bp-xsmall {
@@ -35,9 +64,9 @@
 		&.posterXsmall {
 			display: none;
 
-			// padding-top: $gridGutterHeight * 2;
-			//min-height: 400px;
-			// min-height: 60vh;
+			padding-top: $gridGutterHeight * 2;
+			padding-bottom: $gridGutterHeight * 2.5; // compensate for line height
+
 			@include bp-xsmall {
 				display: block;
 			}
