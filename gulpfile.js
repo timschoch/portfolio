@@ -170,14 +170,10 @@ gulp.task('wiredep', function () {
 
 // publish to amazon s3
 gulp.task('publish', ['build'], function () {
+  var aws = JSON.parse(fs.readFileSync( './.aws.json' ));
   // create a new publisher using S3 options
   // http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#constructor-property
-  var publisher = awspublish.create({
-    region: 'eu-central-1',
-    params: {
-      Bucket: 'timschoch.com'
-    }
-  });
+  var publisher = awspublish.create( aws );
 
   // define custom headers
   var headers = {
@@ -187,7 +183,7 @@ gulp.task('publish', ['build'], function () {
 
   return gulp.src('./dist/**')
      // gzip, Set Content-Encoding headers and add .gz extension
-    .pipe(awspublish.gzip({ ext: '.gz' }))
+    .pipe(awspublish.gzip())
 
     // publisher will add Content-Length, Content-Type and headers specified above
     // If not specified it will set x-amz-acl to public-read by default

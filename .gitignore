@@ -1,6 +1,9 @@
 
 # Created by https://www.gitignore.io/api/windows,visualstudio
 
+### custom stuff
+.aws.json
+
 ### Windows ###
 # Windows image file caches
 Thumbs.db
