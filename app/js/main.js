@@ -6,10 +6,11 @@ var $navigationItems = $('#pageHeader nav li'),
 	scrollSpeed = 2; // how many px per millisecond
 
 var activateLink = function ($link) {
+	var $parent = $link.parent();
 	// set classes
-	$navigationItems.removeClass('selected prev');
-	$link.parent().addClass('selected')
-		.prev().addClass('prev');
+	// $navigationItems.removeClass('selected prev');
+	$parent.prev().addClass('prev').siblings().removeClass('prev');
+	$parent.addClass('selected').siblings().removeClass('selected');
 }
 
 $navigationLinks.click(function (e) {
