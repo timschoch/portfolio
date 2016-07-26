@@ -100,7 +100,7 @@
                 <li class="method mockups">Mockups</li>
               </ul>
               <p class="lead">
-                Our Client was looking to build a versatile extranet where both existing and potential clients as well as service technitians could access their product catalog and services.<br />
+                Our Client was looking to build a versatile extranet where both existing and potential clients as well as service technitians could access their product catalog, documentation, training and collaboration workspaces.<br />
                 What looked like a simple task in the beginning turned out to be way more complex due to very different persona requirements.
                 <a href="#" class="more">read more</a>
                 <a href="#" class="less">read less</a>
@@ -109,41 +109,47 @@
           </header>
           <div class="details">
             <h4>Assignment</h4>
-            <p>User experience (UX) refers to a person's entire experience using a particular product, system or service. The first requirement for a great user experience is to meet the exact needs for the usage of a product or a service, without fuss or bother. To achieve this, users must have all necessary information for their task without being overloaded, not having unnecessary actions, calculation or having to recall. Interaction techniques must be familiar and behave along expectation, errors must be prevented. If users make errors, there must be easy way to recover them.</p>
-            <h4>Wireframes</h4>
-            <p>From the initial requirements and our kick off meeting I created some very basic mockups of how the screen estate could be used.</p>
+            <p>woopdiwoop.  Landis+Gyr provide large scale solutions for smart grids, both electrical and gas....
+              The Time Budget on this project was a couple days.</p>
+            <h4>Kick Off Workshop</h4>
+            <p>In our initial workshop we defined the exact goals of the study and showed the client how the proposed paper prototype will work towards those goals. The first step is always to understand what the client wants, so we mapped out what content the extranet would have and how the process of collaborating would look like. Also in this first day we created dozen personas and prioritized them for release one. Somewhere between mapping out the processes and creating the personas it got clear that this extranet will include way more roles with very divergent requirements than the client had expected and that it would be a complex task to make this broad range of content easy to use.</p>
+            <p class="small">Unfortunatly I can't show you any deliverables from this, but there are more screenshots and photos in the following steps.</p>
+            <h4>Basic Mockups</h4>
+            <p>From the initial requirements and our kick off meeting I created some very basic mockups early on. They actet more as a discussion starter in the next workshop than an actuall deliverable and proved to be very helpful as the client could visualize and understand how screen estate is managed. As the basic design for the extranet was already done prior to our UX project I wasn't worried to already use the headers and footers in this early concept stage.</p>
             <figure>
-              <img src="http://dummyimage.com/600x300" alt="">
-              <figcaption>These very low-fi wireframes show a possible layout concept.</figcaption>
+              <img src="images/lundg/wireframes.png" alt="">
+              <figcaption>These wireframes show a layout concept for the workspaces. On the left you can see the first attempt at role based content as it would show different actions to internal or external users.<br>The right side shows the home page of a single workspace and its overview page - nothing special there except for the short introductionary video on how to use workspaces.</figcaption>
             </figure>
 
-            <h4>Wireframes</h4>
-            <p>From the initial requirements and our kick off meeting I created some very basic mockups of how the screen estate could be used.</p>
+            <h4>Paper Prototype</h4>
+            <p>After the content map was sorted out and the wireframes where done I created a paper prototype. It consisted of roughly 20 screens, each with its own various bits and pieces that could be altered using post-it notes. Between each participant we discussed the findings and iterated on the prototype. Some areas we investigated where the general discoverability of products, two navigations concepts, a way to favourite products and alterations of the starting page and product detail page.</p>
             <figure>
-              <img src="http://dummyimage.com/600x300" alt="">
-              <figcaption>These very low-fi wireframes show a possible layout concept.</figcaption>
+              <img src="images/lundg/paper-prototype.png" alt="">
+              <figcaption>I acted as the computer changing the paper screen infront of the user while the rest of the team was observing and taking notes.</figcaption>
             </figure>
 
-            <h4>Wireframes</h4>
-            <p>From the initial requirements and our kick off meeting I created some very basic mockups of how the screen estate could be used.</p>
+            <h4>Role Based Navigation</h4>
+            <p>One key finding we learned from the usability testings was that the main personas had fundamentally different requirements regarding the use of products on the extranet. On one side there where personas that had access to alot (or all) of the products (that would be over a hundred, not even counting country specific versions of the same product) and would use a wide number of them in their daily work. Most of those users regulary use workspaces too. A typical role for this persona could be an internal project manager or a sales manager at a regional partner company. They most likely needed some form of "last accessed products" and a way to quickly get all used products for a specific project, client or offer.</p>
+            <p>On the other hand there where a lot uf users who only have access to a limited amout of products - roughly between ten and thirty. Out of this collection only a subset would be relevant to them on a daily basis. This would be true for technical support staff mainting the producs on site. These personas would be more interested in a "my favourite products" option with a list to access all the products and software used by their company.</p>
+            <p>Even the type of information displayed for each product changes depending on the role. For example a sales manager would be interested in the general information on the product, compatibility issues, pricing and technical specs for his engineering team while a service technitian on site needs nothing of that but has to be able to quickly access the manuals on his mobile device.</p>
+            <p>Because only the usability study was included in the budget we created the example below of how a role based mega dropdown for the navigation could behave and proposed to do some further investigation on this topic bevor implementing it on the extranet.</p>
             <figure>
-              <img src="http://dummyimage.com/600x300" alt="">
-              <figcaption>These very low-fi wireframes show a possible layout concept.</figcaption>
+              <img src="images/lundg/contextual-navigation.png" alt="">
+              <figcaption>Role based mockups for the mega menu showing different quick access lists for internal or external users.</figcaption>
             </figure>
 
-            <h4>Final Deliverable</h4>
-            <p>From the initial requirements and our kick off meeting I created some very basic mockups of how the screen estate could be used.</p>
+            <h4>Responsive Design</h4>
+            <p>One design requirement was that the it had to be responsive. Although this wasn't part of the UX study I included the following screens to show how the different personas influenced our design decissions. On the desktop (left) the highest priority personas are interested in the product information itself, not so much in getting related content like software, updates or manuals. As a result 60% of the screen is used to presented that information.</p>
+            <p>The product information section on the mobile view (right) is collapsed to only a couple lines of teaser text because this information isn't as relevant to the highest priority mobile users (the technical staff on site). By tapping on the "more details" button the whole text can be expanded if needed. The same progressive disclosure method is used for the additional resources each product has by using an accordion. This layout gives the technician on site a very streamlined experience:</p>
+            <ol>
+              <li>Above the fold mainly the product name, product number and images are shown. This is to ensure the users visually confirms that the product he or she is currently working on matches that particular product on the extranet. If the products match, the user can swipe down to proceed.</li>
+              <li>If unsure, a quick read of the product description can point out whether they're on the right page or not. As this is usually not needed this content is mostly collapsed.</li>
+              <li>Using the accordion in the third section the user then has direct access to software udpates, product specs, manuals or contact informations.</li>
+            </ol>
+            <p>Because these are mostly gas or electricity items it was important to ensure the user selects the right products. We could have rearanged the additional ressources to be shown above the fold, but this would </p>
             <figure>
-              <img src="http://dummyimage.com/600x300" alt="">
-              <figcaption>These very low-fi wireframes show a possible layout concept.</figcaption>
-            </figure>
-            <figure>
-              <img src="http://dummyimage.com/600x300" alt="">
-              <figcaption>These very low-fi wireframes show a possible layout concept.</figcaption>
-            </figure>
-            <figure>
-              <img src="http://dummyimage.com/600x300" alt="">
-              <figcaption>These very low-fi wireframes show a possible layout concept.</figcaption>
+              <img src="images/lundg/responsive.png" alt="">
+              <figcaption>The two layouts show how the second column containing the product description gets alot more space on the desktop (left) then on the mobile page (right).</figcaption>
             </figure>
           </div>
         </article>
