@@ -97,7 +97,7 @@ main#pageContent a {
 
 /* --- Title --- */
 h1, h2, h3, h4 {
-    margin: $fontLineHeight * 0.5 0 0 0;
+    margin: $fontLineHeight 0 0 0;
     padding: 0;
 
     color: $headingFontColor;
@@ -128,24 +128,41 @@ p {
 }
 
 /* --- Lists --- */
+ol,
 ul {
     list-style-type: none;
     margin: $gridGutterHeight * 0.5 0;
     padding: 0;
 
-    li {
+    > li {
         margin-bottom: $gridGutterHeight * 0.125;
         margin-left: $listIndent;
+    }
+}
 
+ul > li {
+    &:before {
+        content: '-';
+        display: inline-block;
+        margin-left: $listIndent * -1;
+        width: $listIndent;
+    }
+
+    &.noBullet:before {
+        display: none;
+    }
+}
+
+ol {
+    counter-reset: ol;
+    > li {
+        margin-left: $listOlIndent;
         &:before {
-            content: '-';
+            content: counter(ol) ".";
+            counter-increment: ol;
             display: inline-block;
-            margin-left: $listIndent * -1;
-            width: $listIndent;
-        }
-
-        &.noBullet:before {
-            display: none;
+            margin-left: $listOlIndent * -1;
+            width: $listOlIndent;
         }
     }
 }
@@ -211,8 +228,8 @@ figure {
     margin: $gridGutterHeight * .5 0;
 
     figcaption {
-        @extend %small;
-        @extend %light;
+        @extend .small;
+        @extend .light;
     }
 }
 
