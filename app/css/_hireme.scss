@@ -1,5 +1,23 @@
 #hireme {
+	figure.hello {
+		float: right;
+		max-width: 30%;
+
+		margin: $gridGutterHeight * 1.5 0 $gridGutterHeight $gridGutterWidth;
+
+		figcaption {
+			text-align: center;
+		}
+
+		@include bp-small {
+			max-width: 30%;
+			margin-left: $gridGutterWidth * 0.5;
+			margin-bottom: $gridGutterHeight * 0.5;
+		}
+	}
 	.contact {
+		margin: $gridGutterHeight * 2 0;
+
 		li {
 			&:before {
 				@extend %icon;

@@ -56,6 +56,9 @@
 				color: inherit;
 			}
 		}
+		p {
+			margin: 0.3rem $gridGutterWidth; // 0.3 is to optically align the tagline with the titles above
+		}
 		&.posterLarge {
 			@include bp-xsmall {
 				display: none;
