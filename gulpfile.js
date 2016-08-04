@@ -71,14 +71,16 @@ gulp.task('jshint', function () {
 });
 
 gulp.task('html', ['javascript', 'stylesheet'], function () {
-  var assets = $.useref.assets({searchPath: ['.tmp', 'app/*.html', '.']});
+  var assets = $.useref.assets({ searchPath: ['.tmp', 'app/*.html', '.'] });
 
   return gulp.src('app/*.html')
-    .pipe(assets)
+    .pipe(assets) // load assets
     .pipe($.if('*.js', $.uglify()))
     .pipe($.if('*.css', $.csso()))
-    .pipe(assets.restore())
-    .pipe($.useref())
+    .pipe($.rev()) // rename *only* the concatenated files
+    .pipe(assets.restore()) // restore filter
+    .pipe($.useref()) //
+    .pipe($.revReplace()) // substitute new file names
     .pipe($.if('*.html', $.minifyHtml({conditionals: true, loose: true})))
     .pipe(gulp.dest('dist'));
 });
@@ -197,7 +199,8 @@ gulp.task('publish', ['build'], function () {
 });
 
 gulp.task('build', ['html', 'images', 'fonts', 'extras'], function () {
-  return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
+  return gulp.src('dist/**/*')
+    .pipe($.size({ title: 'build', gzip: true }));
 });
 
 gulp.task('default', ['clean'], function () {
