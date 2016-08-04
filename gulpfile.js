@@ -12,6 +12,7 @@ var reload = browserSync.reload;
 var through2 = require('through2');
 var browserify = require('browserify');
 var awspublish = require('gulp-awspublish');
+var RevAll = require('gulp-rev-all');
 
 var isDevelopment = (process.env.ENVIRONMENT !== "production");
 
@@ -77,10 +78,8 @@ gulp.task('html', ['javascript', 'stylesheet'], function () {
     .pipe(assets) // load assets
     .pipe($.if('*.js', $.uglify()))
     .pipe($.if('*.css', $.csso()))
-    .pipe($.rev()) // rename *only* the concatenated files
     .pipe(assets.restore()) // restore filter
-    .pipe($.useref()) //
-    .pipe($.revReplace()) // substitute new file names
+    .pipe($.useref())
     .pipe($.if('*.html', $.minifyHtml({conditionals: true, loose: true})))
     .pipe(gulp.dest('dist'));
 });
@@ -115,7 +114,7 @@ gulp.task('extras', function () {
   }).pipe(gulp.dest('dist'));
 });
 
-gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
+gulp.task('clean', require('del').bind(null, ['.tmp', 'dist', '.rev']));
 
 gulp.task('serve', ['stylesheet', 'javascript', 'fonts'], function () {
   browserSync({
@@ -170,8 +169,25 @@ gulp.task('wiredep', function () {
     .pipe(gulp.dest('app'));
 });
 
+gulp.task('rev', ['build'], function () {
+  var revAll = new RevAll({
+    dontSearchFile: [/js\/vendor\/*/g, '.pdf', '.png', '.jpg']
+  });
+  return gulp.src('./dist/**/*')
+    .pipe(revAll.revision())
+    .pipe(gulp.dest('.rev'))
+
+    // add manifest file
+    .pipe(revAll.manifestFile())
+    .pipe(gulp.dest('.rev'))
+
+    // add version file
+    .pipe(revAll.versionFile())
+    .pipe(gulp.dest('.rev'));
+});
+
 // publish to amazon s3
-gulp.task('publish', ['build'], function () {
+gulp.task('publish', ['rev'], function () {
   var aws = JSON.parse(fs.readFileSync( './.aws.json' ));
   // create a new publisher using S3 options
   // http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#constructor-property
@@ -183,7 +199,7 @@ gulp.task('publish', ['build'], function () {
     // ...
   };
 
-  return gulp.src('./dist/**')
+  return gulp.src('./.rev/**')
      // gzip, Set Content-Encoding headers and add .gz extension
     .pipe(awspublish.gzip())
 
