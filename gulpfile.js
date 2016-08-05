@@ -3,6 +3,7 @@
 // generated on 2016-07-15 using generator-modern-frontend 0.2.9
 var fs = require('fs');
 var path = require('path');
+var del = require('del');
 
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
@@ -15,7 +16,6 @@ var awspublish = require('gulp-awspublish');
 var RevAll = require('gulp-rev-all');
 
 var isDevelopment = (process.env.ENVIRONMENT !== "production");
-
 
 gulp.task('stylesheet', function () {
   return gulp.src('app/css/main.scss')
@@ -37,8 +37,6 @@ gulp.task('stylesheet', function () {
     .pipe(gulp.dest('.tmp/css'))
     .pipe(reload({stream: true}));
 });
-
-
 
 gulp.task('javascript', function () {
   return gulp.src('app/js/main.js')
@@ -75,10 +73,10 @@ gulp.task('html', ['javascript', 'stylesheet'], function () {
   var assets = $.useref.assets({ searchPath: ['.tmp', 'app/*.html', '.'] });
 
   return gulp.src('app/*.html')
-    .pipe(assets) // load assets
+    .pipe(assets)
     .pipe($.if('*.js', $.uglify()))
     .pipe($.if('*.css', $.csso()))
-    .pipe(assets.restore()) // restore filter
+    .pipe(assets.restore())
     .pipe($.useref())
     .pipe($.if('*.html', $.minifyHtml({conditionals: true, loose: true})))
     .pipe(gulp.dest('dist'));
@@ -114,7 +112,15 @@ gulp.task('extras', function () {
   }).pipe(gulp.dest('dist'));
 });
 
-gulp.task('clean', require('del').bind(null, ['.tmp', 'dist', '.rev']));
+gulp.task('clean', function ( done ) {
+  clean('.tmp');
+  clean('.rev');
+  clean('dist', done);
+});
+
+gulp.task('clean-s3-cache', function ( done ) {
+  clean('./.awspublish-timschoch.com', done);
+});
 
 gulp.task('serve', ['stylesheet', 'javascript', 'fonts'], function () {
   browserSync({
@@ -173,6 +179,7 @@ gulp.task('rev', ['build'], function () {
   var revAll = new RevAll({
     dontSearchFile: [/js\/vendor\/*/g, '.pdf', '.png', '.jpg']
   });
+
   return gulp.src('./dist/**/*')
     .pipe(revAll.revision())
     .pipe(gulp.dest('.rev'))
@@ -186,21 +193,31 @@ gulp.task('rev', ['build'], function () {
     .pipe(gulp.dest('.rev'));
 });
 
+gulp.task('publish', ['clean'], function () {
+  gulp.start('s3');
+});
+
+gulp.task('republish', ['clean-s3-cache'], function () {
+  gulp.start('publish');
+});
+
 // publish to amazon s3
-gulp.task('publish', ['rev'], function () {
+gulp.task('s3', ['rev'], function () {
   var aws = JSON.parse(fs.readFileSync( './.aws.json' ));
   // create a new publisher using S3 options
   // http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#constructor-property
-  var publisher = awspublish.create( aws );
+  // https://www.npmjs.com/package/gulp-awspublish
+  // https://www.npmjs.com/package/gulp-cloudfront
+  aws.cloudfront.patternIndex = /^index\.[a-f0-9]{8}\.html(\.gz)*$/gi;
+  var publisher = awspublish.create( aws.s3 );
 
   // define custom headers
   var headers = {
     'Cache-Control': 'max-age=315360000, no-transform, public'
-    // ...
   };
 
   return gulp.src('./.rev/**')
-     // gzip, Set Content-Encoding headers and add .gz extension
+    // gzip, Set Content-Encoding headers and add .gz extension
     .pipe(awspublish.gzip())
 
     // publisher will add Content-Length, Content-Type and headers specified above
@@ -210,15 +227,56 @@ gulp.task('publish', ['rev'], function () {
     // create a cache file to speed up consecutive uploads
     .pipe(publisher.cache())
 
-     // print upload updates to console
+    // update CloudFront distribution Default Root Object to latest revisioned index.html
+    .pipe($.cloudfront(aws.cloudfront))
+
+    // delete old files from the bucket
+    .pipe(publisher.sync())
+
+    // print upload updates to console
     .pipe(awspublish.reporter());
 });
 
-gulp.task('build', ['html', 'images', 'fonts', 'extras'], function () {
-  return gulp.src('dist/**/*')
-    .pipe($.size({ title: 'build', gzip: true }));
+gulp.task('cloudfront', function () {
+  var aws = JSON.parse(fs.readFileSync( './.aws.json' ));
+  // create a new publisher using S3 options
+  // http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#constructor-property
+  // https://www.npmjs.com/package/gulp-awspublish
+  // https://www.npmjs.com/package/gulp-cloudfront
+  aws.patternIndex = /^index\.[a-f0-9]{8}\.html(\.gz)*$/gi;
+  console.dir(aws);
+
+  return gulp.src('./.rev/**')
+    .pipe($.cloudfront(aws));
+
+});
+
+gulp.task('build', ['html', 'images', 'fonts', 'extras'], function (done) {
+  // gulp.src('dist/**/*')
+  //   .pipe($.size({ title: 'build', gzip: true }));
+
+  done();
 });
 
 gulp.task('default', ['clean'], function () {
   gulp.start('build');
 });
+
+
+/* helper functions */
+function clean(path, done) {
+    log('Cleaning: ' + $.util.colors.blue(path));
+    del(path, done);
+}
+
+function log(msg) {
+    if (typeof(msg) === 'object') {
+        for (var item in msg) {
+            if (msg.hasOwnProperty(item)) {
+                $.util.log($.util.colors.blue(msg[item]));
+            }
+        }
+    } else {
+        $.util.log($.util.colors.blue(msg));
+    }
+}
