@@ -8,7 +8,6 @@
 
     <!-- Place favicon.ico in the root directory -->
 
-
     <!-- build:css css/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="/bower_components/normalize-css/normalize.css" />
@@ -28,10 +27,6 @@
 
   </head>
   <body>
-    <!--[if lt IE 10]>
-      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-
     <header id="pageHeader">
       <a href="#home" class="logo">Tim Schoch » UX/UI Designer</a>
       <nav>
@@ -42,8 +37,7 @@
             href="#work" class="work">Work</a></li><li><a
             href="#quotes" class="quotes">Quotes</a></li><li><a
             href="#aboutme" class="aboutme">About me</a></li><li><a
-            href="#hireme" class="hireme">Hire me</a></li><!--<li><a
-            href="#typography" class="typography">Typography</a></li>-->
+            href="#hireme" class="hireme">Hire me</a></li>
         </ul>
       </nav>
     </header>
@@ -382,26 +376,92 @@
         <!-- end:saurer -->
 
         <!-- firmendesign -->
-        <!--<article class="firmendesign">
+        <article class="firmendesign">
           <header>
-            <figure><img src="http://dummyimage.com/200x200" alt="SharePoint Firmendesign"></figure>
+            <figure><img src="images/firmendesign/firmendesign.png" alt="SharePoint Branding"></figure>
             <div class="info">
-              <h3>SharePoint Firmendesign</h3>
+              <h3>SharePoint Branding</h3>
               <ul class="methods">
-                <li class="method mockups">Mockups</li>
-                <li class="method styleguide">Style Guide</li>
+                <li class="method scss">SCSS</li>
+                <li class="method gulp">gulp</li>
+                <li class="method photoshop">Photoshop</li>
               </ul>
               <p class="lead">
-                Anrisstext
+                Using SCSS and gulp I built a branding framework that allows us to create customized designs in an hour or two.
                 <a href="#" class="more">read more</a>
                 <a href="#" class="less">read less</a>
               </p>
             </div>
           </header>
           <div class="details">
-            Moar
+            <h4>Assignment</h4>
+            <p>I joined IOZ as a web designer and developer initially and all the designs where created from scratch each time a client would buy one. A complex and usability optimized design could take several weeks to produce. If you ever had to style SharePoint you know it's a mess. The CSS selectors can be so specific that for example overriding the link color in the navigation can end up in a selector like</p>
+            <blockquote class="light">#s4-workspace div.ms-core-listMenu-verticalBox > ul.ms-core-listMenu-root.static li.static.selected > span.static:hover</blockquote>
+            <p>As you can imagine re-writing this every time required a lot of in-depth know how and was very error prone. To fix this mess I built a SCSS framework for easy customization without the need to know any of the css selectors at all. Using gulp to build the design all our developers can produce a decent looking design in under an hour. Compare that to the time it took us to previously complete a single design of the same quality and detail that is bloody fast.</p>
+            <p>To further improve quality I built <strong>three templates</strong> to choose from. They are already ux optimized, cater to different CI styles and are so flexibel we even use them as a boilerplate for fully custom designs. In the example below you can see the three templates in action.</p>
+            <figure>
+              <img src="images/firmendesign/ospelt-imago.png" alt="">
+              <figcaption>The <strong>Imago</strong> template is named after - you guessed it - the header image</figcaption>
+            </figure>
+            <figure>
+              <img src="images/firmendesign/ospelt-lucida.png" alt="">
+              <figcaption><strong>Lucida</strong> is a light-weight template often chosen by large companies</figcaption>
+            </figure>
+            <figure>
+              <img src="images/firmendesign/ospelt-technica.png" alt="">
+              <figcaption>Our best selling design is called <strong>Technica</strong></figcaption>
+            </figure>
+            <h4>Client Designs</h4>
+            <p>Following are some client designs we built. All of them are based on one of the three templates showing the flexibility that comes with this framework.</p>
+
+            <figure>
+              <img src="images/firmendesign/geocom.png" alt="">
+              <figcaption>An O365 Cloud Imago Design</figcaption>
+            </figure>
+            <figure>
+              <img src="images/firmendesign/globus.png" alt="">
+              <figcaption>Based on the Technica Design with a very nice looking news center</figcaption>
+            </figure>
+            <figure>
+              <img src="images/firmendesign/hilcona.png" alt="">
+              <figcaption>The first Technica Design to have a full screen background image and a solid color header.</figcaption>
+            </figure>
+            <figure>
+              <img src="images/firmendesign/jetaviation.png" alt="">
+              <figcaption>This is a <strong>Lucida Design</strong>. Yep. Compare this to the typical Lucida design and you get an idea how powerfull this framework is.</figcaption>
+            </figure>
+            <figure>
+              <img src="images/firmendesign/helsana.png" alt="">
+              <figcaption>A typical minimal Lucida Design with just enough color to make it appealing</figcaption>
+            </figure>
+            <figure>
+              <img src="images/firmendesign/ubs.png" alt="">
+              <figcaption>Another typical Lucida Design</figcaption>
+            </figure>
+            <figure>
+              <img src="images/firmendesign/heineken.png" alt="">
+              <figcaption>One of my favourite designs because of the dark theme going on :)<br/>Based on the Technica Template</figcaption>
+            </figure>
+            <figure>
+              <img src="images/firmendesign/fmi.png" alt="">
+              <figcaption>A highly customized Imago Design</figcaption>
+              <img src="images/firmendesign/fmi-megamenu.png" alt="">
+              <figcaption>The client uses megamenus for large multi level navigations<br/>
+                (this screenshot is from the test, in reality it is about half the size and works quite well)</figcaption>
+            </figure>
+            <figure>
+              <img src="images/firmendesign/electrosuisse.png" alt="">
+              <figcaption>A fairly untouched Technica Design</figcaption>
+            </figure>
+            <figure>
+              <img src="images/firmendesign/finnova.png" alt="">
+              <figcaption>Customized O365 Cloud Design based on the Technica Template</figcaption>
+            </figure>
+
+            <h4>Conclusion</h4>
+            <p>SharePoint used to be a usability mess with multiple UI concepts clashing everywhere. By making SharePoint behave more like a website and adhereing to well known conventions we made our intranets both easier to use and better looking. I'm glad to see that Microsoft has finally heard our requests for a better user experience and is overhauling the UI in their new products.</p>
           </div>
-        </article>-->
+        </article>
         <!-- end:firmendesign -->
 
       </section>
@@ -462,7 +522,7 @@
             <footer>
               <cite>
                 <span class="name">Daniel Schnyder</span>
-                <span class="jobtitle">former Head of Development and member of the executive board</span>
+                <span class="jobtitle">former Head of Development and executive board member</span>
                 at <span class="company">IOZ AG</span>
               </cite>
             </footer>
@@ -485,8 +545,8 @@
           <h3>Colleagues</h3>
 
           <blockquote>
-            <p>In the beginning Tim had a tough position with us developers but his introduction to UX was easily comprehensible. Now we regularly rely on his experience when creating interfaces. Even if he tends to remove most of the borders we put into our designs. :) The fact that he is rooted in web development makes collaboration straight forward because we use the same lingo.</p>
-            <!--<p class="german">Am Anfang hatte Tim einen schweren Stand mit uns Entwicklern, aber er hat uns das ganze UX Thema gut vermittelt und wir greifen bei der Erstellung von Interfaces gerne auf seine Erfahrung zurück. Auch wenn er uns dann immer alle Rahmen aus den Interfaces streicht. Dass er seine Wurzeln in der Entwicklung hat macht das Zusammenarbeiten für uns einfacher, weil wir dieselbe Sprache sprechen.</p>-->
+            <p>Tim was responsible for introducing UX both to our dev departement and the whole company in general. The workshops he conducted where easily comprehensible. The fact that he is rooted in web development makes collaboration straight forward because we use the same lingo. Now we regularly rely on his experience when creating interfaces.</p>
+            <!--<p class="german">Tim war verantwortlich für das Einbringen des Thema UX in die IOZ und insbesondere die Entwicklungsabteilung. In internen Workshops hat er uns das Thema verständlich vermittelt, und da er seine Wurzeln in der Entwicklung hat, und wir dieselbe Sprache sprechen können, machte dies die Zusammenarbeit für uns einfach. Bei der Erstellung von Applikationen griffen wir jeweils gerne auf seine Erfahrungen zurück.</p>-->
             <footer>
               <cite>
                 <span class="name">Pascal Berger</span>
@@ -592,74 +652,9 @@
         <p>OH, by the way, while the web is my background and I still love the binary world but I've always been curious about working with physical products. I don't have any experience what so ever (besides designing our furniture for our off-road camper in SolidWorks). But... if you happen to be a manufacturing company, liked my portfolio and you're looking for a friendly UX dude to do some cool stuff together - let's talk too!</p>
       </section>
       <!-- end:hireme -->
-
-      <!-- typography -->
-      <!--
-      <section class="waypoint" id="typography">
-        <h2>Typography Exampale</h2>
-        <p>User experience (UX) refers to a person's entire experience using a particular product, system or service. The first requirement for a great user experience is to meet the exact needs for the usage of a product or a service, without fuss or bother. To achieve this, users must have all <strong>necessary information</strong> for their task without being overloaded, not having unnecessary actions, calculation or having to recall. Interaction techniques must be familiar and behave along expectation, errors must be prevented. If users make errors, there must be easy way to recover them. When usage is frequent, product or service must provide shortcut. Users need to have feedbacks, feel in control and know what is going on at all time.User experience includes the practical, experiential, affective, meaningful and valuable aspects of human–computer interaction and product ownership. Additionally, it includes a person’s perceptions of system aspects such as utility, ease of use and efficiency. User experience may be considered subjective in nature to the degree that it is about individual perception and thought with respect to the system. User experience is dynamic as it is constantly modified over time due to changing usage circumstances and changes to individual systems as well as the wider usage context in which they can be found.</p>
-
-        <p>User experience (UX) refers to a person's entire experience using a particular product, system or service. The first requirement for a great user experience is to meet the exact needs for the usage of a product or a service, without fuss or bother. To achieve this, users must have all necessary information for their task without being overloaded, not having unnecessary actions, calculation or having to recall. Interaction techniques must be familiar and behave along expectation, errors must be prevented. If users make errors, there must be easy way to recover them. When usage is frequent, product or service must provide shortcut. Users need to have feedbacks, feel in control and know what is going on at all time.User experience includes the practical, experiential, affective, meaningful and valuable aspects of human–computer interaction and product ownership. Additionally, it includes a person’s perceptions of system aspects such as utility, ease of use and efficiency. User experience may be considered subjective in nature to the degree that it is about individual perception and thought with respect to the system. User experience is dynamic as it is constantly modified over time due to changing usage circumstances and changes to individual systems as well as the wider usage context in which they can be found.</p>
-
-        <h2>This is a second title</h2>
-        <p>User experience (UX) refers to a person's entire experience using a particular product, system or service. The first requirement for a great user experience is to meet the exact needs for the usage of a product or a service, without fuss or bother. To achieve this, users must have all necessary information for their task without being overloaded, not having unnecessary actions, calculation or having to recall. Interaction techniques must be familiar and behave along expectation, errors must be prevented. If users make errors, there must be easy way to recover them. When usage is frequent, product or service must provide shortcut. Users need to have feedbacks, feel in control and know what is going on at all time.User experience includes the practical, experiential, affective, meaningful and valuable aspects of human–computer interaction and product ownership. Additionally, it includes a person’s perceptions of system aspects such as utility, ease of use and efficiency. User experience may be considered subjective in nature to the degree that it is about individual perception and thought with respect to the system. User experience is dynamic as it is constantly modified over time due to changing usage circumstances and changes to individual systems as well as the wider usage context in which they can be found.</p>
-
-        <h3>Third Level would look something like this</h3>
-        <p>User experience (UX) refers to a person's entire experience using a particular product, system or service. The first requirement for a great user experience is to meet the exact needs for the usage of a product or a service, without fuss or bother. To achieve this, users must have all necessary information for their task without being overloaded, not having unnecessary actions, calculation or having to recall. Interaction techniques must be familiar and behave along expectation, errors must be prevented. If users make errors, there must be easy way to recover them. When usage is frequent, product or service must provide shortcut. Users need to have feedbacks, feel in control and know what is going on at all time.User experience includes the practical, experiential, affective, meaningful and valuable aspects of human–computer interaction and product ownership. Additionally, it includes a person’s perceptions of system aspects such as utility, ease of use and efficiency. User experience may be considered subjective in nature to the degree that it is about individual perception and thought with respect to the system. User experience is dynamic as it is constantly modified over time due to changing usage circumstances and changes to individual systems as well as the wider usage context in which they can be found.</p>
-
-        <h4>Minor Title for Level 4</h4>
-        <p>User experience (UX) refers to a person's entire experience using a particular product, system or service. The first requirement for a great user experience is to meet the exact needs for the usage of a product or a service, without fuss or bother. To achieve this, users must have all necessary information for their task without being overloaded, not having unnecessary actions, calculation or having to recall. Interaction techniques must be familiar and behave along expectation, errors must be prevented. If users make errors, there must be easy way to recover them. When usage is frequent, product or service must provide shortcut. Users need to have feedbacks, feel in control and know what is going on at all time.User experience includes the practical, experiential, affective, meaningful and valuable aspects of human–computer interaction and product ownership. Additionally, it includes a person’s perceptions of system aspects such as utility, ease of use and efficiency. User experience may be considered subjective in nature to the degree that it is about individual perception and thought with respect to the system. User experience is dynamic as it is constantly modified over time due to changing usage circumstances and changes to individual systems as well as the wider usage context in which they can be found.</p>
-
-        <h2>Lists</h2>
-        <p>User experience (UX) refers to a person's entire experience using a particular product, system or service. The first requirement for a great user experience is to meet the exact needs for the usage of a product or a service, without fuss or bother. To achieve this, users must have all necessary information for their task without being overloaded, not having unnecessary actions, calculation or having to recall.</p>
-
-        <ul>
-          <li>Chief experience officer</li>
-          <li>Content strategy</li>
-          <li>Customer experience</li>
-          <li>Expectation</li>
-          <li>Human factors and ergonomics</li>
-        </ul>
-
-        <p>Users need to have feedbacks, feel in control and know what is going on at all time.User experience includes the practical, experiential, affective, meaningful and valuable aspects of human–computer interaction and product ownership. Additionally, it includes a person’s perceptions of system aspects such as utility, ease of use and efficiency. User experience may be considered subjective in nature to the degree that it is about individual perception and thought with respect to the system. User experience is dynamic as it is constantly modified over time due to changing usage circumstances and changes to individual systems as well as the wider usage context in which they can be found.</p>
-
-
-        <ul>
-          <li>User experience (UX) refers to a person's entire experience using a particular product, system or service. The first requirement for a great user experience is to meet the exact needs for the usage of a product or a service, without fuss or bother. To achieve this, users must have all necessary information for their task without being overloaded, not having unnecessary actions, calculation or having to recall.</li>
-          <li>Interaction techniques must be familiar and behave along expectation, errors must be prevented. If users make errors, there must be easy way to recover them.</li>
-          <li>When usage is frequent, product or service must provide shortcut. Users need to have feedbacks, feel in control and know what is going on at all time.User experience includes the practical, experiential, affective, meaningful and valuable aspects of human–computer interaction and product ownership.</li>
-          <li>Additionally, it includes a person’s perceptions of system aspects such as utility, ease of use and efficiency. User experience may be considered subjective in nature to the degree that it is about individual perception and thought with respect to the system. User experience is dynamic as it is constantly modified over time due to changing usage circumstances and changes to individual systems as well as the wider usage context in which they can be found.</li>
-        </ul>
-
-        <p>User experience (UX) refers to a person's entire experience using a particular product, system or service. The first requirement for a great user experience is to meet the exact needs for the usage of a product or a service, without fuss or bother. To achieve this, users must have all necessary information for their task without being overloaded, not having unnecessary actions, calculation or having to recall. Interaction techniques must be familiar and behave along expectation, errors must be prevented. If users make errors, there must be easy way to recover them. When usage is frequent, product or service must provide shortcut. Users need to have feedbacks, feel in control and know what is going on at all time.User experience includes the practical, experiential, affective, meaningful and valuable aspects of human–computer interaction and product ownership. Additionally, it includes a person’s perceptions of system aspects such as utility, ease of use and efficiency. User experience may be considered subjective in nature to the degree that it is about individual perception and thought with respect to the system. User experience is dynamic as it is constantly modified over time due to changing usage circumstances and changes to individual systems as well as the wider usage context in which they can be found.</p>
-
-        <h2>Quotes</h2>
-        <p>User experience (UX) refers to a person's entire experience using a particular product, system or service. The first for a great user experience is to meet the exact needs for the usage of a product or a service, without fuss or bother. To achieve this, users must have all </p>
-        <blockquote>
-          <p>Die Führung der Workshops war sehr gut und die Resultate zeigen, dass der eingeschlagenen Weg richtig war. Es war spannend zu Beobachten wie die Teilnehmer die fiktive Oberfläche des Papierprototyps annahmen und ihre Aufgaben lösten. Ich bin der Meinung solche Workshops müssten in Zukunft in die Organisationsprojekte einfliessen und zum Standard gehören.</p>
-          <footer>
-            <cite>
-              <span class="name">Urs Schenker</span>
-              on <span class="project">Vorprojekt E-Dossier RMS</span>
-              <span class="jobtitle">Projektleiter Interne Projekte</span>
-              at <span class="company">Alfred Müller AG</span>
-            </cite>
-          </footer>
-        </blockquote>
-
-        <h2>Very long Titles</h2>
-        <p>User experience (UX) refers to a person's entire experience using a particular product, system or service. The first for a great user experience is to meet the exact needs for the usage of a product or a service, without fuss or bother. To achieve this, users must have all </p>
-        <h1>User experience (UX) refers to a person's entire experience using a particular product, system or service.</h1>
-        <h2>The first requirement for a great user experience is to meet the exact needs for the usage of a product or a service</h2>
-        <h3>To achieve this, users must have all necessary information for their task without being overloaded, not having unnecessary actions, calculation or having to recall.</h3>
-        <h4>Interaction techniques must be familiar and behave along expectation, errors must be prevented. If users make errors, there must be easy way to recover them.</h4>
-        <p>User experience (UX) refers to a person's entire experience using a particular product, system or service. The first requirement for a great user experience is to meet the exact needs for the usage of a product or a service, without fuss or bother. To achieve this, users must have all
-      </section>
-      -->
-      <!-- end:typography -->
     </main>
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <!-- Google Analytics -->
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

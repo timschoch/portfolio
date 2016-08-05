@@ -231,6 +231,9 @@ figure {
         @extend .small;
         @extend .light;
     }
+    figcaption + img {
+        margin-top: $gridGutterHeight;
+    }
 }
 
 figure + figure {

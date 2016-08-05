@@ -27,9 +27,7 @@
 				img {
 					position: absolute;
 					top: 50%;
-					// margin-top: -50%;
 					left: 50%;
-					// margin-left: -50%;
 					min-height: 100%;
 					min-width: 100%;
 					max-width: inherit;
@@ -151,4 +149,22 @@
 	left: 0;
 	top: 0;
 	transform: none;
+}
+#work article.firmendesign header > figure {
+	@include bp-xsmall {
+		left: 10px;
+		height: 80px;
+	}
+
+	> img {
+		left: 0;
+		top: 0;
+		transform: none;
+
+		@include bp-small {
+			top: -8px; // optically align with title
+			transform: scale(0.9); // shrink it to fit into the box
+			transform-origin: 0 0;
+		}
+	}
 }
