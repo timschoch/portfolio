@@ -11,6 +11,10 @@
 		color: $fontHeavyColor;
 		text-align: center;
 
+		background-image: url( '../images/ux-designer-desktop-60.png' );
+		background-position: center center;
+		background-size: cover;
+
 			@include bp-small {
 				height: auto;
 				min-height: #{$posterSmallMinHeight};
@@ -23,20 +27,6 @@
 			color: #FFFFFF;
 		}
 
-		&:before {
-			content: "";
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			opacity: 0.6;
-
-			background-image: url( '../images/ux-designer-desktop.png' );
-
-			background-position: center center;
-			background-size: cover;
-		}
 		&:after {
 			content: "";
 			position: absolute;
@@ -49,7 +39,6 @@
 	}
 
 	.posterContent {
-		position: absolute;
 		padding: $posterPaddingTop $posterPaddingHorizontal $posterPaddingBottom $posterPaddingHorizontal;
 
 		h1,
@@ -74,11 +63,12 @@
 
 			padding-top: $gridGutterHeight * 2;
 			padding-bottom: $gridGutterHeight * 2.5; // compensate for line height
+			padding-left: $posterPaddingHorizontal * 0.25;
+			padding-right: $posterPaddingHorizontal * 0.25;
 
 			@include bp-xsmall {
 				display: block;
 			}
 		}
 	}
-
 }
