@@ -243,11 +243,11 @@ gulp.task('cloudfront', function () {
   // http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#constructor-property
   // https://www.npmjs.com/package/gulp-awspublish
   // https://www.npmjs.com/package/gulp-cloudfront
-  aws.patternIndex = /^index\.[a-f0-9]{8}\.html(\.gz)*$/gi;
+  aws.cloudfront.patternIndex = /^index\.[a-f0-9]{8}\.html(\.gz)*$/gi;
   console.dir(aws);
 
-  return gulp.src('./.rev/**')
-    .pipe($.cloudfront(aws));
+  return gulp.src('.rev/**')
+    .pipe($.cloudfront(aws.cloudfront));
 
 });
 
