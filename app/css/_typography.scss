@@ -199,7 +199,6 @@ blockquote {
 
             span {
                 @extend %smallHeavy;
-                white-space: nowrap;
             }
             .name {
                 &:before {

@@ -47,7 +47,7 @@ $headingFontFamily: 'Assistant', sans-serif;
 $headingFontSize: rem( 22px );
 $headingfontHeavyWeight: 600;
 $headingFontLineHeight: $fontLineHeight;
-$headingMultiplier: 1.25;
+$headingMultiplier: 1.15;
 $headingFontMultiplier: $headingMultiplier;
 $headingLineHeightMultiplier: 1.1;
 $headingBaseLevel: 4;
@@ -80,12 +80,12 @@ $navSmallVerticalPadding: rem( 10px );
 $navSmallInnerHeight: $navSmallHeight - $navSmallVerticalPadding * 2;
 
 // --- home --- //
-$posterMinHeight: 60vh;
+$posterMinHeight: 70vh;
 $posterSmallMinHeight: 70vh;
 $posterXsmallMinHeight: 50vh;
 $posterPaddingTop: $gridGutterHeight * 5.5;
 $posterPaddingBottom: $gridGutterHeight * 4;
-$posterPaddingHorizontal: $gridGutterHeight * 0.5;
+$posterPaddingHorizontal: $gridGutterHeight * 1.5;
 
 
 
