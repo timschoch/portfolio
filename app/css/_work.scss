@@ -70,33 +70,33 @@
 					}
 				}
 			}
+			.lead {
+				max-height: 15 * $fontLineHeight;
+				transition: max-height 0.2s;
+			}
 			.more,
 			.less {
-				@extend %small;
-				font-size: 60%;
-				line-height: 1;
-				vertical-align: 2px;
+				@extend %light;
 
-				display: inline-block;
-				padding: 2px 5px;
-				margin-left: $gridGutterWidth * .5;
+				display: block;
 
-				border: 1px solid $workDividerColor;
-				border-radius: 3px;
-
-				transition: color $fadeOutDuration,
-					border-color $fadeOutDuration;
+				border: none;
 
 				&:before {
-					content: ' » ';
-					vertical-align: 1px;
+					@extend %icon;
+					content: '\f107'; // .fa-angle-down
+					margin-right: rem( 10px );
 				}
 
 				&:hover {
 					color: $corporateColor;
-
-					transition: color $fadeInDuration,
-						border-color $fadeInDuration;
+				}
+				@include bp-xsmall {
+					color: $fontColor;
+					padding: rem( 5px ) rem( 10px );
+					border: 1px solid $lightBackgroundColor;
+					background: $lightBackgroundColor;
+					border-radius: rem( 2px );
 				}
 			}
 
@@ -104,7 +104,8 @@
 				display: none;
 
 				&:before {
-					content: ' « ';
+					content: '\f106'; // .fa-angle-up
+
 				}
 			}
 
@@ -119,6 +120,11 @@
 				a {
 					border-color: $corporateColor;
 				}
+				.more,
+				.less {
+					color: $corporateColor;
+					@extend %aHover;
+				}
 			}
 		}
 
@@ -126,17 +132,34 @@
 		.details {
 			margin-top: $gridGutterHeight;
 			display: none;
+
+			&.flash,
+			&.flash h4 {
+				animation: flash-work 1s;
+			}
+
+			@at-root {
+				@keyframes flash-work {
+					20% { color: inherit }
+					60% { color: $corporateColor }
+					100% { color: inherit }
+				}
+			}
 		}
 
 
 		// selected styling
 		&.selected {
 			header {
+				.lead {
+					// max-height: 0;
+					overflow: hidden;
+				}
 				.more {
 					display: none;
 				}
 				.less {
-					display: inline-block;
+					display: block;
 				}
 			}
 			.details {

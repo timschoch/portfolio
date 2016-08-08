@@ -49,8 +49,33 @@ for (var i = 0; i < waypoints.length; i++) {
 $('#work article header').click(function (e) {
 	e.preventDefault();
 
-	$(this).parent().toggleClass('selected');
-	// make sure the refresh happens after the details are fully visible
+	var $parent = $(this).parent(),
+		selected = $parent.hasClass( 'selected' );
+
+	// unselect item -> hide details
+	if (selected) {
+		$parent.removeClass( 'selected' );
+	}
+	// select item -> show details
+	else {
+		$parent.addClass('selected');
+		var $details = $parent.find('> .details'),
+			top = Math.round($details.offset().top),
+			viewportHeight = $(window).height();
+
+		$details.removeClass('flash');
+
+		// details is hidden below fold
+		if (top + viewportHeight * .25 > $('html').scrollTop() + viewportHeight) {
+			$('html').animate({
+				scrollTop: top - viewportHeight * 0.5
+			});
+
+			$details.addClass('flash');//.removeClass('flash');
+		}
+	}
+
+	// make sure the waypoint refresh happens after the details are fully visible
 	setTimeout(function () {
 		Waypoint.refreshAll();
 	}, 1000);
