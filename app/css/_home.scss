@@ -4,8 +4,9 @@
 
 	.poster {
 		position: relative;
-		min-height: #{$posterMinHeight};
 		height: 500px;
+		height: #{$posterMinHeight};
+		max-height: 550px;
 		overflow: hidden;
 
 		color: $fontHeavyColor;
@@ -13,6 +14,7 @@
 
 		background-image: url( '../images/ux-designer-desktop-60.png' );
 		background-position: center center;
+		background-repeat: none;
 		background-size: cover;
 
 			@include bp-small {
