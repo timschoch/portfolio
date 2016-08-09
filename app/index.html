@@ -254,75 +254,70 @@
           </header>
           <div class="details">
             <h4>Assignment</h4>
-            <p>
-              Our client is a canton department (canton is what we call a state in Switzerland) that has several divisions, which again have a hand full of sub-sections. Most of them operate semi-autonomous where they do get general governance and best practices but the implementation is mostly left to the departments. This was very obvious on the old intranet as the quality of content ranged from almost blank pages to really helpful and graphically enhanced sites. Our job was to create a report for the c-level management and consult them on how to build a new and usable intranet.
-            </p>
-            <p>We agreed on doing a Lab Study on the old intranet, draw a prototype and then test it. I did a quick post study interview and label test. Finally I conducted an expert Review. The budget for this project was roughly two weeks.
+            <p>Our client is a canton department (canton is what we call a state in Switzerland) that has several divisions. Most of them operate semi-autonomous where they do get general governance and best practices but the implementation is mostly left to the departments. This was very obvious on the old intranet as the quality of content ranged from almost blank pages to really helpful and graphically enhanced sites. Our task was to create a report for the c-level management and consult them on how to build a new and usable intranet.</p>
+            <p>We agreed on doing a Lab Study on the current intranet, draw a prototype and then test it. I did a quick post study interview and label test. Finally I conducted an expert Review. The budget for this project was roughly two weeks.
 
             <h4>Information Architecture</h4>
-            <p>Most of the users with more than a year on the job had a general idea of what information and documents the different departments and sections provided. Based on this finding it made sense to keep using an organisational structure to organize data as this was the most natural to the involved users. The problem was the absence of a consistent site structure across the different divisions thus making it hard to know the exact location where documents could be found. This lead to users saving templates locally or asking colleagues for information.</p>
-            <p>Besides lacking a consistent structure the document type categories where ambiguous. In the old intranet the most common ones where directives, guideline, form, resources, processes and check lists. These labels posed several problems:
+            <p>Most of the users with more than a year on the job had a good idea of what information and documents the different departments provided. Despite this shared understanding the inconsistent navigation across divisions made it hard to know how to access the documents. This lead to users saving templates locally or interrupting colleagues to ask for information.</p>
+            <p>Also the most common document type labels where ambiguous (directives, guideline, form, processes, check lists).
               <ol>
-                <li>None of the test participants could tell the difference between <strong>directive, guideline and forms</strong>.</li>
-                <li><strong>Process</strong> was correctly attributed to some form of operation or action, but it was unclear if this would be a diagram showing the process, a checklist that helps getting all requirements of a given process, a documentation helping to apply the process or a workflow that could be started by filling out a form.</li>
-                <li><strong>Resources</strong> was generally unknown when asked the open question what it might be. Once we asked what the category for meeting rooms or equipment would be named all participants responded with "resources". The conclusion is that the term simply isn't used yet in the clients jargon. As they were about to introduce MS Outlook as their new email tool before the intranet launched we advised to keep this label for meeting rooms and equipment. The reason being that those items will be labelled Resources in Outlook and users will directly make reservations in their calendar as needed. We expect users to get comfortable with this new term fairly quickly.</li>
+                <li>No participant could tell the difference between <strong>directive, guideline and forms</strong>.</li>
+                <li><strong>Process</strong> was correctly attributed to some form of operation or action, but it was unclear if this would be a diagram showing the process, a checklist of requirements for a given process, a documentation helping to apply the process or a workflow that could be started using a web form.</li>
               </ol>
             </p>
-            <p>This is the simplified site structure we came up with for each divisions and sections site:</p>
-            <ul>
-              <li><strong>[Division Name]</strong> the landing page of the respective division or section</li>
-              <li><strong>Documents</strong> contains a list of all documents with quick views on categories directives, forms and check lists</li>
-              <li><strong>Process</strong> has a short explanatory text and two links:
-                <ol>
-                  <li>Provis (third party process management tool containing the Visio process maps)</li>
-                  <li>Link to the checklist view on the document library</li>
-                </ol>
-                A workflow platform was planned but not in the scope of this redesign. Once this platform is live users will be able to start workflows from this page.
+            <p>Based on the present content we recommended limiting the document types to <strong>directive, form and check list</strong> and a simplified site navigation:</p>
+            <ol>
+              <li><strong>[Division Name]</strong> the landing page of the respective division</li>
+              <li><strong>Documents</strong> contains all documents with quick filters on directives, forms and check lists</li>
+              <li><strong>Process</strong> has a short explanatory text and three areas:
+                <ul>
+                  <li>List of workflows that can be started from here</li>
+                  <li>Link to the Checklists view in the document library</li>
+                  <li>Link to Provis (3rd party process management tool containing Visio process maps)</li>
+                </ul>
               </li>
-            </ul>
+            </ol>
 
             <h4>Personas</h4>
-            <p>The two main personas are called "internal" and "external" meaning they are of the same division as the page they are looking at. Both have different expectations on what the intranet should provide.</p>
+            <p>The two main personas are called <strong>internal</strong> and <strong>external</strong>. Internal meaning they work in the same division as the page they are currently looking at and external. Both have different expectations on what the intranet should provide.</p>
             <ul>
-              <li><strong>Division internal</strong> users have in-depth knowledge of the available documents and workflows offered by their division and will mostly work directly on the document library. As they tend to use a hand full of templates over and over again we offer them a way to favourite documents.</li>
-              <li><strong>Division external</strong> users on the other hand have rather shallow knowledge of what available documents exist and only a general idea of where the document could be located or what the exact name is. They need assistance in finding what they are looking for.</li>
+              <li><strong>Division internal</strong> users have in-depth knowledge of the available documents and workflows offered by their division and will work directly on the document library. As they tend to use a hand full of templates over and over again we offer them a way to favourite documents on their intranet cockpit.</li>
+              <li><strong>Division external</strong> users have rather shallow knowledge of what exact documents are available and only a general idea of where that document could be located or what the exact name might be. They need assistance in finding it.</li>
             </ul>
-            <p>In the next two examples I would like to demonstrate to you how this affected the final outcome.</p>
+            <p>In the next two examples I would like to demonstrate how this insight affected the final outcome.</p>
 
             <h4>Division home page</h4>
             <p>
-              The landing page of each division or sub division acts as an informational starting point and is primarily optimized for external uses. (Internal ones will skip this page and go directly to their document library). It provides answers to the most important questions an external user may have.</p>
+              Each divisions landing page acts as an informational starting point and is optimized for <strong>external</strong> users. It answers the most important questions:</p>
             <figure>
-              <img src="images/jsd/homepage.png" alt="">
-              <figcaption></figcaption>
+              <img src="images/jsd/homepage.png" alt="" />
             </figure>
             <ol>
               <li><strong>What service does this division provide?</strong><br />
-                In a brief text the division introduces itself. All sub-sections in the text are directly linked to the respective landing page. This is something we added after observing a user trying to click on one of the sub-sections. It is a small detail but it adds to the convenience of using the intranet.</li>
-              <li><strong>What are the most used artefacts?</strong><br />
-                Each division can provide up to six or seven links to their most important assets. This could be any content like documents, workflows or forms.</li>
+                A brief introduction to the division. All sub-divisions in the text are directly linked to their respective landing page. This is something we added after observing a user trying to click on one of the sub-divisions in the text instead of the left navigation. It is a small detail but it adds to the convenience of using the intranet.</li>
+              <li><strong>What are the most used assets?</strong><br />
+                Each division can provide up to six links to their most important artefacts like documents, workflows or forms.</li>
               <li><strong>Where can I get help?</strong><br/>
                 If the user is uncertain where to find the desired information they can quickly see who the main contact for that division is.</li>
               <li><strong>What is new?</strong><br />
-                News can be published per division or for the whole department. If there are any specific news for this division, the latest are shown here. (for example when the fire department has bought new trucks)</li>
+                The latest news are shown here.<br/>(e.g. the fire department has bought new trucks)</li>
             </ol>
 
             <h4>Personal Cockpit</h4>
-            <p>This is default browser home page that will be set by IT for every employee. It is not the home page of the intranet however.</p>
+            <p>This is default browser home page that will be set by IT for every employee.</p>
             <figure>
               <img src="images/jsd/cockpit.png" alt="">
               <figcaption></figcaption>
             </figure>
             <ol>
-              <li>The left column is the "<strong>me column</strong>": First is a customizable list that shows the favourited content. The user can add any links they want. Second and third is an overview of all collaboration workspaces and workflows where the user is part of. The main <strong>persona</strong> for this is the <strong>internal</strong> as this is granting quick access to well-known content.</li>
+              <li><strong>The "me" column</strong>: customizable list that shows favourited content, an overview of all collaboration workspaces and workflows the user is part of. This is targeted at <strong>internal</strong> users granting quick access to well-known content.</li>
               <li><strong>Live search</strong> is directly integrated into the dashboard</li>
-              <li>A list of <strong>most used documents and forms</strong> of the entire department is the default search results shown before the user enters a query. These documents will most likely be HR or IT related. This part of the dashboard is related to the <strong>external persona</strong> and helps discover content.</li>
-              <li>A widget shows the documents the user has <strong>recently edited</strong>. This is mainly for the internal persona so they can get back to where they left yesterday.</li>
+              <li>The default search result is a list of <strong>most used documents and forms</strong> covering the entire department. This part of the dashboard is optimized for <strong>external</strong> users by helping to discover content.</li>
               <li>The <strong>news column</strong> is used for both top down communication as well as news from within the divisions.</li>
             </ol>
 
             <h4>Conclusion</h4>
-            <p>In the final report the issues with the highest priority where <strong>rather soft skills</strong>. Things like change management and user on boarding, or committing to the intranet as an important tool and dedicating resources to that. Without a doubt the "technical" proposals like the new cockpit are important too, but without the c-level commitment to build and keep the intranet up to date the new intranet will not succeed.</p>
+            <p>In the final report the <strong>highest priority issues</strong> where <strong>soft skills</strong>. Things like change management, user on-boarding, commiting to the intranet as an important tool and dedicating resources to that. Without a doubt "technical" proposals like the new cockpit will have their impact too, but without c-level commitment to keep the intranet up to date an intranet won't succeed.</p>
           </div>
         </article>
         <!-- end:jsd -->
