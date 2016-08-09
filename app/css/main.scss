@@ -61,6 +61,7 @@ $mainColMaxWidth: rem( 600px );
 $fullWidth: $mainColMaxWidth + $gridGutterWidth + $leftColWidth;
 $smallWidth: px( $fullWidth + 2 * $gridGutterWidth );
 $xsmallWidth: px( $mainColMaxWidth + 2 * $gridGutterWidth );
+$xsmallPadding: $gridGutterWidth * 0.75;
 
 // --- Lists --- //
 $listIndent: $gridGutterWidth * 0.5;

@@ -49,7 +49,7 @@ main#pageContent {
 	@include bp-xsmall {
 		position: relative;
 		left: auto;
-		padding: $navSmallHeight $gridGutterWidth * 0.5 $gridGutterHeight;
+		padding: $navSmallHeight $xsmallPadding $gridGutterHeight;
 		transform: none;
 		width: auto;
 		max-width: 1000px;
