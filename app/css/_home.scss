@@ -3,8 +3,8 @@
 	// height: 80vh;
 
 	@include bp-xsmall {
-		margin-left: xsmallPadding * -1;
-		margin-right: xsmallPadding * -1;
+		margin-left: $xsmallPadding * -1;
+		margin-right: $xsmallPadding * -1;
 	}
 
 	.poster {
