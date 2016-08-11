@@ -61,6 +61,13 @@ gulp.task('javascript', function () {
     .pipe(gulp.dest('.tmp/js'));
 });
 
+gulp.task('javascript-vendor', function () {
+  // copy vendor stuff that isn't a bower package
+  return gulp.src([
+    'app/js/vendor/**/*.*'
+  ]).pipe(gulp.dest('dist/js/vendor/'));
+});
+
 gulp.task('jshint', function () {
   return gulp.src('app/js/**/*.js')
     .pipe(reload({stream: true, once: true}))
@@ -103,7 +110,7 @@ gulp.task('fonts', function () {
     .pipe(gulp.dest('dist/fonts'));
 });
 
-gulp.task('extras', function () {
+gulp.task('extras', ['javascript-vendor'], function () {
   return gulp.src([
     'app/*.*',
     '!app/*.html'
