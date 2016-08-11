@@ -4,6 +4,7 @@
 ### custom stuff
 .aws.json
 .rev
+revolution-slider/*
 
 ### Windows ###
 # Windows image file caches
