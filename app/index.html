@@ -15,11 +15,11 @@
     <!-- endbower -->
 
     <!-- RS5.0 Main Stylesheet -->
-    <link rel="stylesheet" type="text/css" href="vendor/revolution/css/settings.css">
+    <link rel="stylesheet" type="text/css" href="js/vendor/revolution/css/settings.css">
 
     <!-- RS5.0 Layers and Navigation Styles -->
-    <link rel="stylesheet" type="text/css" href="vendor/revolution/css/layers.css">
-    <link rel="stylesheet" type="text/css" href="vendor/revolution/css/navigation.css">
+    <link rel="stylesheet" type="text/css" href="js/vendor/revolution/css/layers.css">
+    <link rel="stylesheet" type="text/css" href="js/vendor/revolution/css/navigation.css">
     <!-- endbuild -->
 
 
@@ -31,6 +31,7 @@
     <!-- build:js js/vendor/modernizr.js -->
     <script src="/bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
+
   </head>
   <body>
     <header id="pageHeader">
@@ -529,7 +530,7 @@
         <figure>
           <!-- START REVOLUTION SLIDER 5.0 -->
           <div class="rev_slider_wrapper">
-            <div id="slider1" class="rev_slider"  data-version="5.0">
+            <div id="slider-about" class="rev_slider"  data-version="5.0">
               <ul>
                 <li data-transition="fade">
                   <img src="images/aboutme/aboutme-0.png"  alt="" height="281">
@@ -741,19 +742,19 @@
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/waypoints/lib/noframework.waypoints.js"></script>
     <!-- endbower -->
-
-    <!-- RS5.0 Core JS Files -->
-    <script type="text/javascript" src="vendor/revolution/js/jquery.themepunch.tools.min.js?rev=5.0"></script>
-    <script type="text/javascript" src="vendor/revolution/js/jquery.themepunch.revolution.min.js?rev=5.0"></script>
     <!-- endbuild -->
 
     <!-- build:js js/main.js -->
     <script src="js/main.js"></script>
     <!-- endbuild -->
 
+    <!-- RS5.0 Core JS Files -->
+    <script type="text/javascript" src="js/vendor/revolution/js/jquery.themepunch.tools.min.js?rev=5.0"></script>
+    <script type="text/javascript" src="js/vendor/revolution/js/jquery.themepunch.revolution.min.js?rev=5.0"></script>
+
     <script>
       jQuery(document).ready(function() {
-        jQuery("#slider1").revolution({
+        jQuery("#slider-about").revolution({
             sliderType:"standard",
             sliderLayout:"auto",
             autoHeight:"on",
@@ -766,5 +767,6 @@
           });
       });
     </script>
+
   </body>
 </html>
