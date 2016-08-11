@@ -527,7 +527,22 @@
       <section class="waypoint" id="aboutme">
         <h2>Personal</h2>
         <figure>
-          <img src="images/aboutme/aboutme-0.png" alt="It's-a me!'">
+          <!-- START REVOLUTION SLIDER 5.0 -->
+          <div class="rev_slider_wrapper">
+            <div id="slider1" class="rev_slider"  data-version="5.0">
+              <ul>
+              <li data-transition="fade">
+                <!-- MAIN IMAGE -->
+                <img src="images/aboutme/aboutme-0.png"  alt="" height="281">
+              </li>
+
+              <li data-transition="fade">
+                <!-- MAIN IMAGE -->
+                <img src="images/aboutme/aboutme-7.png"  alt="">
+              </li>
+              </ul>
+            </div><!-- END REVOLUTION SLIDER -->
+          </div><!-- END OF SLIDER WRAPPER -->
         </figure>
         <p>Currently based in Lucerne, Switzerland, I'm a UX Specialist and Designer at <a href="http://www.ioz.ch" target="_blank">IOZ AG</a> where we build custom SharePoint Platforms and Add-Ins. As I'm the only one doing this sort of work my responsibilities range from <strong>producing custom Designs</strong> in Photoshop to <strong>planning and facilitating UX studies and workshops</strong> with our clients and introducing and <strong>establishing the UX principles</strong> with the various stakeholders within our company.</p>
         <p>I've been floating through the web cosmos since the age of 14 (that's more than half of my life) as a graphic designer, front and backend developer and currently as a UX specialist. Throughout my career I've been interested in building easy to use products and prioritizing the user's needs.</p>
@@ -626,9 +641,24 @@
     <script type="text/javascript" src="vendor/revolution/js/jquery.themepunch.revolution.min.js?rev=5.0"></script>
     <!-- endbuild -->
 
-
     <!-- build:js js/main.js -->
     <script src="js/main.js"></script>
     <!-- endbuild -->
+
+    <script>
+      jQuery(document).ready(function() {
+        jQuery("#slider1").revolution({
+            sliderType:"standard",
+            sliderLayout:"auto",
+            autoHeight:"on",
+            delay:9000,
+            navigation: {
+                arrows:{enable:true}
+            },
+            gridwidth:600,
+            gridheight:281
+          });
+      });
+    </script>
   </body>
 </html>
