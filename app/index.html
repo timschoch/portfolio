@@ -837,66 +837,20 @@
     </script>
 
     <!-- build:js js/vendor.js -->
-    <!-- bower:js -->
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/waypoints/lib/noframework.waypoints.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
-
-    <!-- build:js js/main.js -->
-    <script src="js/main.js"></script>
+      <!-- bower:js -->
+      <script src="/bower_components/jquery/dist/jquery.js"></script>
+      <script src="/bower_components/waypoints/lib/noframework.waypoints.js"></script>
+      <!-- endbower -->
     <!-- endbuild -->
 
     <!-- RS5.0 Core JS Files -->
-    <script type="text/javascript" src="js/vendor/revolution/js/jquery.themepunch.tools.min.js?rev=5.0"></script>
-    <script type="text/javascript" src="js/vendor/revolution/js/jquery.themepunch.revolution.min.js?rev=5.0"></script>
-    <!--<script type="text/javascript" src="js/vendor/revolution/js/extensions/revolution.extension.slideanims.min"></script>-->
-    <!--<script type="text/javascript" src="js/vendor/revolution/js/extensions/revolution.extension.navigation.min.js"></script>-->
+    <script src="js/vendor/revolution/js/jquery.themepunch.tools.min.js?rev=5.0"></script>
+    <script src="js/vendor/revolution/js/jquery.themepunch.revolution.min.js?rev=5.0"></script>
 
-    <script type="text/javascript">
-						var tpj=jQuery;
+    <!-- build:js js/main.js -->
+      <script src="js/main.js"></script>
+    <!-- endbuild -->
 
-			var revapi4;
-			tpj(document).ready(function() {
-				if(tpj("#rev_slider_4_1").revolution == undefined){
-					revslider_showDoubleJqueryError("#rev_slider_4_1");
-				}else{
-					revapi4 = tpj("#rev_slider_4_1").show().revolution({
-						sliderType:"standard",
-            jsFileLocation:"/js/vendor/revolution/js/",
-						sliderLayout:"auto",
-						dottedOverlay:"none",
-						delay:1500,
-						navigation: {
-							onHoverStop:"off",
-						},
-						visibilityLevels:[1240,1024,778,480],
-						gridwidth:600,
-						gridheight:281,
-						lazyType:"smart",
-						shadow:0,
-						spinner:"off",
-						stopLoop:"off",
-						stopAfterLoops:-1,
-						stopAtSlide:-1,
-						shuffle:"off",
-						autoHeight:"on",
-						disableProgressBar:"on",
-						hideThumbsOnMobile:"off",
-						hideSliderAtLimit:0,
-						hideCaptionAtLimit:0,
-						hideAllCaptionAtLilmit:0,
-						// startWithSlide:26,
-						debugMode:false,
-						fallbacks: {
-							simplifyAll:"off",
-							nextSlideOnWindowFocus:"off",
-							disableFocusListener:false,
-						}
-					});
-				}
-			});	/*ready*/
-		</script>
 
   </body>
 </html>

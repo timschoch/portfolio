@@ -83,4 +83,45 @@ $('#work article header').click(function (e) {
 	return false;
 });
 
-
+/* aboutme revolution slider */
+var tpj=jQuery;
+var revapi4;
+tpj(document).ready(function() {
+	if(tpj("#rev_slider_4_1").revolution == undefined){
+		revslider_showDoubleJqueryError("#rev_slider_4_1");
+	}else{
+		revapi4 = tpj("#rev_slider_4_1").show().revolution({
+			sliderType:"standard",
+			jsFileLocation:"/js/vendor/revolution/js/",
+			sliderLayout:"auto",
+			dottedOverlay:"none",
+			delay:1500,
+			navigation: {
+				onHoverStop:"off",
+			},
+			visibilityLevels:[1240,1024,778,480],
+			gridwidth:600,
+			gridheight:281,
+			lazyType:"smart",
+			shadow:0,
+			spinner:"off",
+			stopLoop:"off",
+			stopAfterLoops:-1,
+			stopAtSlide:-1,
+			shuffle:"off",
+			autoHeight:"on",
+			disableProgressBar:"on",
+			hideThumbsOnMobile:"off",
+			hideSliderAtLimit:0,
+			hideCaptionAtLimit:0,
+			hideAllCaptionAtLilmit:0,
+			// startWithSlide:26,
+			debugMode:false,
+			fallbacks: {
+				simplifyAll:"off",
+				nextSlideOnWindowFocus:"off",
+				disableFocusListener:false,
+			}
+		});
+	}
+});
