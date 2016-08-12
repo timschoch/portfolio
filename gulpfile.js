@@ -39,7 +39,7 @@ gulp.task('stylesheet', function () {
 });
 
 gulp.task('javascript', function () {
-  return gulp.src('app/js/main.js')
+ return gulp.src('app/js/main.js')
     .pipe(through2.obj(function (file, enc, next){ // workaround for https://github.com/babel/babelify/issues/46
       browserify({
         entries: file.path,
@@ -184,7 +184,8 @@ gulp.task('wiredep', function () {
 
 gulp.task('rev', ['build'], function () {
   var revAll = new RevAll({
-    dontSearchFile: [/js\/vendor\/*/g, '.pdf', '.png', '.jpg']
+    dontRenameFile: [/.*vendor\/revolution\/.*/ig, '.php'],
+    dontSearchFile: [/js\vendor\*/ig, '.pdf', '.png', '.jpg']
   });
 
   return gulp.src('./dist/**/*')
