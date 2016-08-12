@@ -85,6 +85,9 @@ strong {
 a {
     @extend %a;
 }
+.cursor-pointer {
+    cursor:pointer
+}
 main#pageContent a {
     border-bottom: 3px solid $lightBackgroundColor;
     transition: border-color $fadeOutDuration;
