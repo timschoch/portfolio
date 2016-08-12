@@ -59,7 +59,7 @@ html {
         font-size: $gridBaseFontSize * 0.9;
     }
     @include bp-xsmall {
-        font-size: $gridBaseFontSize * 0.8;
+        font-size: $gridBaseFontSize * 0.85;
     }
 }
 strong {

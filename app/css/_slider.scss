@@ -1,0 +1,8 @@
+// the slider sets box-sizing on all elements! wtf? reset it here and apply it to the slider only
+* {
+	box-sizing: initial;
+}
+.rev_slider_wrapper,
+.rev_slider_wrapper * {
+	box-sizing: border-box;
+}
