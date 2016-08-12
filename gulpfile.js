@@ -185,6 +185,7 @@ gulp.task('wiredep', function () {
 gulp.task('rev', ['build'], function () {
   var revAll = new RevAll({
     dontRenameFile: [/.*vendor\/revolution\/.*/ig, '.php'],
+    dontUpdateReference: [/.*vendor\/revolution\/.*/ig],
     dontSearchFile: [/js\vendor\*/ig, '.pdf', '.png', '.jpg']
   });
 
