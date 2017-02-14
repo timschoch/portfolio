@@ -31,7 +31,7 @@ gulp.task('stylesheet', function () {
       this.emit('end');
     })
     .pipe($.postcss([
-      require('autoprefixer-core')({browsers: ['last 1 version']})
+      require('autoprefixer')({browsers: ['last 1 version']})
     ]))
     .pipe($.if(isDevelopment, $.sourcemaps.write()))
     .pipe(gulp.dest('.tmp/css'))
@@ -183,22 +183,22 @@ gulp.task('wiredep', function () {
 });
 
 gulp.task('rev', ['build'], function () {
-  var revAll = new RevAll({
+  var revAllConfig = {
     dontRenameFile: [/.*vendor\/revolution\/.*/ig, '.php'],
     dontUpdateReference: [/.*vendor\/revolution\/.*/ig],
     dontSearchFile: [/js\/vendor\/*/ig, '.pdf', '.png', '.jpg']
-  });
+  };
 
   return gulp.src('./dist/**/*')
-    .pipe(revAll.revision())
+    .pipe(RevAll.revision(revAllConfig))
     .pipe(gulp.dest('.rev'))
 
     // add manifest file
-    .pipe(revAll.manifestFile())
+    .pipe(RevAll.manifestFile(revAllConfig))
     .pipe(gulp.dest('.rev'))
 
     // add version file
-    .pipe(revAll.versionFile())
+    .pipe(RevAll.versionFile(revAllConfig))
     .pipe(gulp.dest('.rev'));
 });
 
