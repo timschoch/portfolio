@@ -7,10 +7,12 @@ var $navigationItems = $('#pageHeader nav li'),
 
 var activateLink = function ($link) {
 	var $parent = $link.parent();
+
 	// set classes
 	// $navigationItems.removeClass('selected prev');
 	$parent.prev().addClass('prev').siblings().removeClass('prev');
 	$parent.addClass('selected').siblings().removeClass('selected');
+	trackPageView( $link.attr( 'class' ) );
 }
 
 $navigationLinks.click(function (e) {
@@ -43,6 +45,17 @@ for (var i = 0; i < waypoints.length; i++) {
 		},
 		offset: '25%'
 	});
+}
+
+// track page views
+var timerTrackPageView = 0;
+var trackPageView = function( page ) {
+	clearTimeout(timerTrackPageView);
+	
+	timerTrackPageView = setTimeout(function(){
+		ga('set', 'page', '/' + page + '.html');
+		ga('send', 'pageview');
+	}, 1000);
 }
 
  /* work */
@@ -124,17 +137,4 @@ tpj(document).ready(function() {
 			}
 		});
 	}
-});
-// track replay click on slider
-jQuery('body').on('click', '.ga-button', function() {
-    var $this = jQuery(this),
-        data  = $this.attr('data-link') || $this.attr('href');
-
-    if(!data) {
-        data = $this.attr('data-actions');
-        if(data) data = data[0].url;
-        if(!data) data = $this.attr('id');
-    }
-
-    __gaTracker('send', 'event', 'outbound', 'click', data, {'transport': 'beacon'});
 });
