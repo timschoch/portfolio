@@ -253,7 +253,6 @@ gulp.task('cloudfront', function () {
   // https://www.npmjs.com/package/gulp-awspublish
   // https://www.npmjs.com/package/gulp-cloudfront
   aws.cloudfront.patternIndex = /^index\.[a-f0-9]{8}\.html(\.gz)*$/gi;
-  console.dir(aws);
 
   return gulp.src('.rev/**')
     .pipe($.cloudfront(aws.cloudfront));
