@@ -63,11 +63,16 @@ $('#work article header').click(function (e) {
 	e.preventDefault();
 
 	var $parent = $(this).parent(),
-		selected = $parent.hasClass( 'selected' );
+		selected = $parent.hasClass( 'selected' ),
+		page = $parent.attr( 'class' );
 
 	// unselect item -> hide details
 	if (selected) {
 		$parent.removeClass( 'selected' );
+
+		// set page view to work
+		ga('set', 'page', '/work.html');
+		ga('send', 'pageview');
 	}
 	// select item -> show details
 	else {
@@ -86,6 +91,10 @@ $('#work article header').click(function (e) {
 
 			$details.addClass('flash');//.removeClass('flash');
 		}
+
+		// set page view to work
+		ga('set', 'page', '/work/' + page + '.html');
+		ga('send', 'pageview');
 	}
 
 	// make sure the waypoint refresh happens after the details are fully visible
