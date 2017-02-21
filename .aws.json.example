@@ -1,17 +1,17 @@
 {
     "s3": {
         "region": "eu-central-1",
-        "accessKeyId": "AKIAJ3XBA3R5UCSWIPGA",
-        "secretAccessKey": "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",
+        "accessKeyId": "QWERASDF123456",
+        "secretAccessKey": "QWERASWDFYXCV123456789QWERASDFYXCV",
         "params": {
             "Bucket": "timschoch.com"
         }
     },
     "cloudfront": {
-        "key": "AKIAJ3XBA3R5UCSWIPGA",
-        "secret": "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",
+        "key": "QWERASDF123456",
+        "secret": "QWERASWDFYXCV123456789QWERASDFYXCV",
         "bucket": "timschoch.com",
         "region": "eu-central-1",
-        "distributionId": "E2WK2SHIAQCERX"
+        "distributionId": "YXCVASDF1234"
     }
 }
