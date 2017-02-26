@@ -1,5 +1,5 @@
 $_spriteTopOffset: px( $navLineHeight ) - 60px;
-$_spriteLeftOffset: px( $navIndent ) - 50px;
+$_spriteLeftOffset: px( $navIndent ) - 52px;
 
 // --- default nav styling --- //
 nav {
@@ -70,7 +70,8 @@ nav {
 		// current navigation
 		li.selected {
 			&:before {
-				background-color: $corporateColor;
+				//background-color: $corporateColor;
+				color: $corporateColor;
 			}
 		}
 
@@ -78,6 +79,7 @@ nav {
 		li.selected ~ li {
 			&:before {
 				background-color: transparent;
+				color: transparent;
 			}
 		}
 
@@ -86,13 +88,15 @@ nav {
 			&:before {
 				display: block;
 				position: absolute;
-				content: "";
+				content: "\f111";
+				font: normal normal normal 12px/1 FontAwesome;
 				width: $navIndent;
 				height: $navLineHeight;
+				line-height: $navLineHeight;
 				margin-left: $navIndent * -1;
 
 				background-color: $lightFontHeavyColor;
-				background-image: url( '../images/blobbs.png' );
+				background-image: url( '../images/lines.png' );
 				background-position: $_spriteLeftOffset center;
 			}
 			&:first-child:before {
