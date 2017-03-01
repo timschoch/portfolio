@@ -34,6 +34,16 @@
     <header id="pageHeader">
       <a href="#home" class="logo">Tim Schoch » UX/UI Designer</a>
       <nav>
+        <div></div>
+        <ul class="waterdrop">
+          <li><div></div></li>
+          <li><div></div></li>
+          <li><div></div></li>
+          <li><div></div></li>
+          <li><div></div></li>
+          <li><div></div></li>
+          <li class="waterdrop"><div></div></li>
+        </ul>
         <ul>
           <li class="selected"><a
             href="#home" class="home">Home</a></li><li><a
@@ -45,6 +55,17 @@
         </ul>
       </nav>
     </header>
+
+    <!-- blur filter for waterdrops -->
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1">
+      <defs>
+        <filter id="water">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"></feGaussianBlur>
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="water"></feColorMatrix>
+          <feComposite in="SourceGraphic" in2="water" operator="atop"></feComposite>
+        </filter>
+      </defs>
+    </svg>
 
     <!-- home -->
     <main id="pageContent">
@@ -852,6 +873,7 @@
       <script src="/app/js/vendor/revolution/js/jquery.themepunch.tools.min.js"></script>
       <script src="/app/js/vendor/revolution/js/jquery.themepunch.revolution.min.js"></script>
     <!-- endbuild -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.13.1/TweenMax.min.js"></script>
 
     <!-- build:js js/main.js -->
       <script src="js/main.js"></script>

@@ -5,6 +5,64 @@ var $navigationItems = $('#pageHeader nav li'),
 	$navigationLinks = $navigationItems.find('a'),
 	scrollSpeed = 2; // how many px per millisecond
 
+// effect controller constructor
+function Waterdrop(selector){
+
+	var	$waterdrop = $(selector),
+		$line = $('nav > div:first-child');
+
+	function activate($element){
+	    var dest=$element.position().top;
+	    var t=0.9;
+	    TweenMax.to($waterdrop,t,{y:dest,ease:Back.easeOut})
+	  }
+
+	  // drop transformation is based on JS part of http://codepen.io/lbebber/pen/lFdHu
+	var lastPos=$waterdrop.position().top,
+		lineStart = lastPos,
+		d=$waterdrop.height(),
+		offset=0,
+		hd=d/2;
+
+	var dot = $waterdrop.find('div');
+		if (!dot.length) dot = $waterdrop;
+
+	var lineOffset = dot.position().top - lineStart + hd;
+
+		$line.height(0);
+		$line.css({
+			"top": lineStart + lineOffset,
+			"left": $waterdrop.width() / 2
+		});
+
+	function updateScale(){
+
+	    var pos=$waterdrop.position().top,	    
+	    	speed=Math.abs(pos-lastPos),
+	    	scale=(offset+pos)%d;
+
+	    if(scale>hd){
+	      scale=hd-(scale-hd);
+	    }
+	    scale=1-((scale/hd)*0.5);
+	    TweenMax.to($waterdrop,0.1,{scaleX:scale,scaleY:1+(speed*0.06)});
+
+	    $line.height(pos - lineStart);
+	    
+	    lastPos=pos;
+		requestAnimationFrame(updateScale);
+	}
+
+	requestAnimationFrame(updateScale);
+
+	activate($waterdrop);
+
+	return {
+		activate: activate
+	} 
+}
+var waterDrop = Waterdrop("li.waterdrop");
+
 var activateLink = function ($link) {
 	var $parent = $link.parent();
 
@@ -12,6 +70,7 @@ var activateLink = function ($link) {
 	// $navigationItems.removeClass('selected prev');
 	$parent.prev().addClass('prev').siblings().removeClass('prev');
 	$parent.addClass('selected').siblings().removeClass('selected');
+	waterDrop.activate($parent);
 	trackPageView( $link.attr( 'class' ) );
 }
 

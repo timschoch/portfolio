@@ -1,5 +1,5 @@
 $_spriteTopOffset: px( $navLineHeight ) - 60px;
-$_spriteLeftOffset: px( $navIndent ) - 52px;
+$_spriteLeftOffset: px( $navIndent ) - 50px;
 
 // --- default nav styling --- //
 nav {
@@ -48,62 +48,94 @@ nav {
 	li.selected ~ li a {
 		color: $lightFontColor;
 	}
+	ul.waterdrop {
+		display: none;
+	}
 }
 
 // --- desktop nav --- //
+$dotWidth: 40%; // for blur depth 5
+
 nav {
 	@include bp-large {
-		ul {
-			// position: relative;
-			background-color: $navLineBackgroundColor;
+		>div:first-child {
+			position: absolute;
+			width: 1px;
+			border-radius: 1px;
+			background-color: $lightFontHeavyColor;
+			height: 10px;
+			margin-left: $navIndent * -1;
 		}
-
+		ul {
+			display: inline-block !important;
+			float: left;
+		}
 		li {
-			//position: relative;
-			//height: $navLineHeight;
+			position: relative;
+			height: $navLineHeight;
 			margin-left: $navIndent;
 
-			//line-height: $navLineHeight;
+			line-height: $navLineHeight;
 			background-color: white;
 		}
 
 		// current navigation
 		li.selected {
-			&:before {
+			div:before {
 				//background-color: $corporateColor;
-				color: $corporateColor;
+				//color: $corporateColor;
 			}
 		}
 
 		// upcomming navigation
 		li.selected ~ li {
 			&:before {
-				background-color: transparent;
-				color: transparent;
+				//background-color: transparent;
+				//color: transparent;
 			}
 		}
 
 		// --- blobbs --- //
-		li {
-			&:before {
-				display: block;
-				position: absolute;
-				content: "\f111";
-				font: normal normal normal 12px/1 FontAwesome;
-				width: $navIndent;
-				height: $navLineHeight;
-				line-height: $navLineHeight;
-				margin-left: $navIndent * -1;
+		ul.waterdrop {
+			margin-left: $navIndent * -1;
+			filter: url("#water");
+			-webkit-filter: url("#water");
 
-				background-color: $lightFontHeavyColor;
-				background-image: url( '../images/lines.png' );
-				background-position: $_spriteLeftOffset center;
-			}
-			&:first-child:before {
-				background-position: ( $_spriteLeftOffset + 50px ) center;
-			}
-			&:last-child:before {
-				background-position: ( $_spriteLeftOffset + 100px ) center;
+			li {
+				display: block;
+				position: relative;
+				width: $navLineHeight; 
+				height: $navLineHeight; 
+				background-color: transparent;
+				display: -webkit-flex;
+			    display: flex;
+			    -webkit-flex-wrap: wrap;
+			    flex-wrap: wrap;
+			    -webkit-align-content: center;
+			    align-content: center;
+
+				&:before {
+					content: "";
+				}
+				div {
+					position: absolute;
+				    top: 50%;
+				    left: 50%;
+				    height: $dotWidth;
+				    width: $dotWidth;
+				    margin: -0.5*$dotWidth 0 0 -0.5*$dotWidth;
+					border-radius: 100%;
+					background-color: $lightFontHeavyColor;
+				}
+				&.waterdrop {
+					position: absolute;
+					background-color: transparent;
+					top: 0;
+				}
+				&.waterdrop div {
+					background-color: $corporateColor;
+					transform: scale(1.2, 1.2);
+				}
 			}
 		}
 
