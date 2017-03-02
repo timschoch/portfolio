@@ -1,8 +1,9 @@
 /* jshint devel:true */
 
 /* navigation */
-var $navigationItems = $('#pageHeader nav li'),
+var $navigationItems = $('#pageHeader nav ul:last-child li'),
 	$navigationLinks = $navigationItems.find('a'),
+	$waterdropItems  = $('nav .waterdrop li'),
 	scrollSpeed = 2; // how many px per millisecond
 
 // effect controller constructor
@@ -13,8 +14,8 @@ function Waterdrop(selector){
 
 	function activate($element){
 	    var dest=$element.position().top;
-	    var t=0.9;
-	    TweenMax.to($waterdrop,t,{y:dest,ease:Back.easeOut})
+	    var t=0.7;
+	    TweenMax.to($waterdrop,t,{y:dest,ease:Back.easeOut, yoyo:false})
 	  }
 
 	  // drop transformation is based on JS part of http://codepen.io/lbebber/pen/lFdHu
@@ -29,11 +30,14 @@ function Waterdrop(selector){
 
 	var lineOffset = dot.position().top - lineStart + hd;
 
-		$line.height(0);
+		//$line.height(0);
 		$line.css({
 			"top": lineStart + lineOffset,
 			"left": $waterdrop.width() / 2
 		});
+
+		$line = $line.find('span:first-child');
+		lineStart = 0;
 
 	function updateScale(){
 
@@ -70,6 +74,10 @@ var activateLink = function ($link) {
 	// $navigationItems.removeClass('selected prev');
 	$parent.prev().addClass('prev').siblings().removeClass('prev');
 	$parent.addClass('selected').siblings().removeClass('selected');
+	$navigationItems.each(function(idx){ 
+		if ($(this).hasClass('selected')) $($waterdropItems[idx]).addClass('selected');
+		else $($waterdropItems[idx]).removeClass('selected');
+	});
 	waterDrop.activate($parent);
 	trackPageView( $link.attr( 'class' ) );
 }

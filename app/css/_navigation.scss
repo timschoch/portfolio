@@ -55,7 +55,8 @@ nav {
 
 // --- desktop nav --- //
 $dotWidth: 40%; // for blur depth 5
-
+$liBackgroundColor: white;
+$inactiveFontColor: mix( white, $lightFontColor, $lightOpacity * 100 );
 nav {
 	@include bp-large {
 		>div:first-child {
@@ -63,8 +64,21 @@ nav {
 			width: 1px;
 			border-radius: 1px;
 			background-color: $lightFontHeavyColor;
-			height: 10px;
+			height: $navLineHeight * 5;
 			margin-left: $navIndent * -1;
+			overflow: hidden;
+			> span {
+				display: block;
+				width: 100%;
+			}
+			> span:first-child {
+				height: 0; //$navLineHeight*6;
+				background-color: $lightFontHeavyColor;
+			}
+			> span:last-child {
+				height: 100%;
+				background-color: $inactiveFontColor;
+			}
 		}
 		ul {
 			display: inline-block !important;
@@ -76,7 +90,7 @@ nav {
 			margin-left: $navIndent;
 
 			line-height: $navLineHeight;
-			background-color: white;
+			background-color: $liBackgroundColor;
 		}
 
 		// current navigation
@@ -100,6 +114,7 @@ nav {
 			margin-left: $navIndent * -1;
 			filter: url("#water");
 			-webkit-filter: url("#water");
+			overflow: hidden;
 
 			li {
 				display: block;
@@ -113,6 +128,7 @@ nav {
 			    flex-wrap: wrap;
 			    -webkit-align-content: center;
 			    align-content: center;
+			    z-index: 2;
 
 				&:before {
 					content: "";
@@ -127,14 +143,18 @@ nav {
 					border-radius: 100%;
 					background-color: $lightFontHeavyColor;
 				}
+				&.selected ~ li div {
+					background-color: $inactiveFontColor;
+				}
 				&.waterdrop {
 					position: absolute;
 					background-color: transparent;
 					top: 0;
+					z-index: 3;
 				}
 				&.waterdrop div {
 					background-color: $corporateColor;
-					transform: scale(1.2, 1.2);
+					//transform: scale(1.2, 1.2);
 				}
 			}
 		}
