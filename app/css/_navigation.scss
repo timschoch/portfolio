@@ -5,51 +5,48 @@ $_spriteLeftOffset: px( $navIndent ) - 50px;
 nav {
 	position: relative;
 
-	ul {
+	ul.navigation {
 		position: relative;
-	}
 
-	li {
-		position: relative;
-		height: $navLineHeight;
-		margin: 0;
+		li {
+			position: relative;
+			height: $navLineHeight;
+			margin: 0;
 
-		line-height: $navLineHeight;
-		&:before,
-		&:after {
-			@extend %light;
-			display: none;
-			font-style: normal;
-		}
-	}
-
-	a {
-		color: $fontColor;
-		text-decoration: none;
-
-		&:hover {
-			color: $fontHeavyColor;
+			line-height: $navLineHeight;
+			&:before,
+			&:after {
+				@extend %light;
+				display: none;
+				font-style: normal;
+			}
 		}
 
-		&:before,
-		&:after {
-			@extend %light;
-			display: none;
-			font-style: normal;
+		a {
+			color: $fontColor;
+			text-decoration: none;
+
+			&:hover {
+				color: $fontHeavyColor;
+			}
+
+			&:before,
+			&:after {
+				@extend %light;
+				display: none;
+				font-style: normal;
+			}
 		}
-	}
 
-	// current navigation
-	li.selected a {
-		color: $corporateColor;
-	}
+		// current navigation
+		li.selected a {
+			color: $corporateColor;
+		}
 
-	// upcomming navigation
-	li.selected ~ li a {
-		color: $lightFontColor;
-	}
-	ul.waterdrop {
-		display: none;
+		// upcomming navigation
+		li.selected ~ li a {
+			color: $lightFontColor;
+		}
 	}
 }
 
@@ -59,75 +56,32 @@ $liBackgroundColor: white;
 $inactiveFontColor: mix( white, $lightFontColor, $lightOpacity * 100 );
 nav {
 	@include bp-large {
-		>div:first-child {
-			position: absolute;
-			width: 1px;
-			border-radius: 1px;
-			background-color: $lightFontHeavyColor;
-			height: $navLineHeight * 5;
-			margin-left: $navIndent * -1;
-			overflow: hidden;
-			> span {
-				display: block;
-				width: 100%;
-			}
-			> span:first-child {
-				height: 0; //$navLineHeight*6;
-				background-color: $lightFontHeavyColor;
-			}
-			> span:last-child {
-				height: 100%;
-				background-color: $inactiveFontColor;
-			}
-		}
-		ul {
-			display: inline-block !important;
-			float: left;
-		}
-		li {
-			position: relative;
-			height: $navLineHeight;
-			margin-left: $navIndent;
-
-			line-height: $navLineHeight;
-			background-color: $liBackgroundColor;
-		}
-
-		// current navigation
-		li.selected {
-			div:before {
-				//background-color: $corporateColor;
-				//color: $corporateColor;
-			}
-		}
-
-		// upcomming navigation
-		li.selected ~ li {
-			&:before {
-				//background-color: transparent;
-				//color: transparent;
-			}
+		// --- navigation --- //
+		ul.navigation {
 		}
 
 		// --- blobbs --- //
 		ul.waterdrop {
-			margin-left: $navIndent * -1;
+			position: absolute;
+			top: 0;
+			left: $navLineHeight * -1;
+			margin: 0;
 			filter: url("#water");
 			-webkit-filter: url("#water");
 			overflow: hidden;
+			z-index: 2;
 
 			li {
-				display: block;
+				display: flex;
+			    flex-wrap: wrap;
+			    align-content: center;
+				
 				position: relative;
 				width: $navLineHeight; 
 				height: $navLineHeight; 
+				margin: 0;
+
 				background-color: transparent;
-				display: -webkit-flex;
-			    display: flex;
-			    -webkit-flex-wrap: wrap;
-			    flex-wrap: wrap;
-			    -webkit-align-content: center;
-			    align-content: center;
 			    z-index: 2;
 
 				&:before {
@@ -156,6 +110,30 @@ nav {
 					background-color: $corporateColor;
 					//transform: scale(1.2, 1.2);
 				}
+			}
+		}
+		// --- line --- //
+		div.line {
+			position: absolute;
+			width: 1px;
+			border-radius: 1px;
+			background-color: $lightFontHeavyColor;
+			height: $navLineHeight * 5;
+			margin-top: $navLineHeight * 0.5;
+			overflow: hidden;
+			z-index: 1;
+
+			> span {
+				display: block;
+				width: 100%;
+			}
+			> span:first-child {
+				height: 0; //$navLineHeight*6;
+				background-color: $lightFontHeavyColor;
+			}
+			> span:last-child {
+				height: 100%;
+				background-color: $inactiveFontColor;
 			}
 		}
 

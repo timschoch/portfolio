@@ -1,7 +1,7 @@
 /* jshint devel:true */
 
 /* navigation */
-var $navigationItems = $('#pageHeader nav ul:last-child li'),
+var $navigationItems = $('#pageHeader nav ul.navigation li'),
 	$navigationLinks = $navigationItems.find('a'),
 	$waterdropItems  = $('nav .waterdrop li'),
 	scrollSpeed = 2; // how many px per millisecond
@@ -10,7 +10,7 @@ var $navigationItems = $('#pageHeader nav ul:last-child li'),
 function Waterdrop(selector){
 
 	var	$waterdrop = $(selector),
-		$line = $('nav > div:first-child');
+		$line = $('nav > div.line');
 
 	function activate($element){
 	    var dest=$element.position().top;
@@ -28,12 +28,14 @@ function Waterdrop(selector){
 	var dot = $waterdrop.find('div');
 		if (!dot.length) dot = $waterdrop;
 
-	var lineOffset = dot.position().top - lineStart + hd;
+	// var lineOffset = dot.position().top - lineStart + hd;
+	var lineOffset = 0;
 
 		//$line.height(0);
 		$line.css({
+			// "top": lineStart + lineOffset
 			"top": lineStart + lineOffset,
-			"left": $waterdrop.width() / 2
+			"left": $waterdrop.width() * -0.5 -1
 		});
 
 		$line = $line.find('span:first-child');
