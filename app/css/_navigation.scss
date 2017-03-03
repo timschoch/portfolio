@@ -48,12 +48,13 @@ nav {
 			color: $lightFontColor;
 		}
 	}
+	.waterdrop,
+	.line {
+		display: none;
+	}
 }
 
 // --- desktop nav --- //
-$dotWidth: 40%; // for blur depth 5
-$liBackgroundColor: white;
-$inactiveFontColor: mix( white, $lightFontColor, $lightOpacity * 100 );
 nav {
 	@include bp-large {
 		// --- navigation --- //
@@ -63,6 +64,7 @@ nav {
 		// --- blobbs --- //
 		ul.waterdrop {
 			position: absolute;
+			display: block;
 			top: 0;
 			left: $navLineHeight * -1;
 			margin: 0;
@@ -98,7 +100,7 @@ nav {
 					background-color: $lightFontHeavyColor;
 				}
 				&.selected ~ li div {
-					background-color: $inactiveFontColor;
+					background-color: $lightBackgroundColor;
 				}
 				&.waterdrop {
 					position: absolute;
@@ -115,6 +117,7 @@ nav {
 		// --- line --- //
 		div.line {
 			position: absolute;
+			display: block;
 			width: 1px;
 			border-radius: 1px;
 			background-color: $lightFontHeavyColor;
@@ -128,24 +131,14 @@ nav {
 				width: 100%;
 			}
 			> span:first-child {
-				height: 0; //$navLineHeight*6;
+				height: 0;
 				background-color: $lightFontHeavyColor;
 			}
 			> span:last-child {
 				height: 100%;
-				background-color: $inactiveFontColor;
+				background-color: $lightBackgroundColor;
 			}
 		}
-
-		// current blobb
-		// &:before {
-		// 	content: "";
-		// 	display: block;
-		// 	position: absolute;
-		// 	height: $navLineHeight;
-		// 	width: $navIndent;
-		// 	background-color: $fontHeavyColor;
-		// }
 	}
 }
 
@@ -154,7 +147,7 @@ nav {
 	@include bp-small {
 		margin-left: $gridGutterWidth;
 
-		ul {
+		ul.navigation {
 			margin: 0;
 
 			li {
