@@ -56,17 +56,6 @@
       </nav>
     </header>
 
-    <!-- blur filter for waterdrops -->
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1">
-      <defs>
-        <filter id="water">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"></feGaussianBlur>
-          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="water"></feColorMatrix>
-          <feComposite in="SourceGraphic" in2="water" operator="atop"></feComposite>
-        </filter>
-      </defs>
-    </svg>
-
     <!-- home -->
     <main id="pageContent">
       <section class="waypoint" id="home">
@@ -879,6 +868,17 @@
       <script src="js/main.js"></script>
     <!-- endbuild -->
 
+
+    <!-- blur filter for waterdrops -->
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1" style="position: absolute">
+      <defs>
+        <filter id="water">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"></feGaussianBlur>
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="water"></feColorMatrix>
+          <feComposite in="SourceGraphic" in2="water" operator="atop"></feComposite>
+        </filter>
+      </defs>
+    </svg>
 
   </body>
 </html>
