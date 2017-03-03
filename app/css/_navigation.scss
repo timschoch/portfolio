@@ -48,58 +48,114 @@ nav {
 	li.selected ~ li a {
 		color: $lightFontColor;
 	}
+	ul.waterdrop {
+		display: none;
+	}
 }
 
 // --- desktop nav --- //
+$dotWidth: 40%; // for blur depth 5
+$liBackgroundColor: white;
+$inactiveFontColor: mix( white, $lightFontColor, $lightOpacity * 100 );
 nav {
 	@include bp-large {
-		ul {
-			// position: relative;
-			background-color: $navLineBackgroundColor;
+		>div:first-child {
+			position: absolute;
+			width: 1px;
+			border-radius: 1px;
+			background-color: $lightFontHeavyColor;
+			height: $navLineHeight * 5;
+			margin-left: $navIndent * -1;
+			overflow: hidden;
+			> span {
+				display: block;
+				width: 100%;
+			}
+			> span:first-child {
+				height: 0; //$navLineHeight*6;
+				background-color: $lightFontHeavyColor;
+			}
+			> span:last-child {
+				height: 100%;
+				background-color: $inactiveFontColor;
+			}
 		}
-
+		ul {
+			display: inline-block !important;
+			float: left;
+		}
 		li {
-			//position: relative;
-			//height: $navLineHeight;
+			position: relative;
+			height: $navLineHeight;
 			margin-left: $navIndent;
 
-			//line-height: $navLineHeight;
-			background-color: white;
+			line-height: $navLineHeight;
+			background-color: $liBackgroundColor;
 		}
 
 		// current navigation
 		li.selected {
-			&:before {
-				background-color: $corporateColor;
+			div:before {
+				//background-color: $corporateColor;
+				//color: $corporateColor;
 			}
 		}
 
 		// upcomming navigation
 		li.selected ~ li {
 			&:before {
-				background-color: transparent;
+				//background-color: transparent;
+				//color: transparent;
 			}
 		}
 
 		// --- blobbs --- //
-		li {
-			&:before {
-				display: block;
-				position: absolute;
-				content: "";
-				width: $navIndent;
-				height: $navLineHeight;
-				margin-left: $navIndent * -1;
+		ul.waterdrop {
+			margin-left: $navIndent * -1;
+			filter: url("#water");
+			-webkit-filter: url("#water");
+			overflow: hidden;
 
-				background-color: $lightFontHeavyColor;
-				background-image: url( '../images/blobbs.png' );
-				background-position: $_spriteLeftOffset center;
-			}
-			&:first-child:before {
-				background-position: ( $_spriteLeftOffset + 50px ) center;
-			}
-			&:last-child:before {
-				background-position: ( $_spriteLeftOffset + 100px ) center;
+			li {
+				display: block;
+				position: relative;
+				width: $navLineHeight; 
+				height: $navLineHeight; 
+				background-color: transparent;
+				display: -webkit-flex;
+			    display: flex;
+			    -webkit-flex-wrap: wrap;
+			    flex-wrap: wrap;
+			    -webkit-align-content: center;
+			    align-content: center;
+			    z-index: 2;
+
+				&:before {
+					content: "";
+				}
+				div {
+					position: absolute;
+				    top: 50%;
+				    left: 50%;
+				    height: $dotWidth;
+				    width: $dotWidth;
+				    margin: -0.5*$dotWidth 0 0 -0.5*$dotWidth;
+					border-radius: 100%;
+					background-color: $lightFontHeavyColor;
+				}
+				&.selected ~ li div {
+					background-color: $inactiveFontColor;
+				}
+				&.waterdrop {
+					position: absolute;
+					background-color: transparent;
+					top: 0;
+					z-index: 3;
+				}
+				&.waterdrop div {
+					background-color: $corporateColor;
+					//transform: scale(1.2, 1.2);
+				}
 			}
 		}
 
