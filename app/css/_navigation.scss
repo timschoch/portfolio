@@ -5,113 +5,140 @@ $_spriteLeftOffset: px( $navIndent ) - 50px;
 nav {
 	position: relative;
 
-	ul {
+	ul.navigation {
 		position: relative;
-	}
 
-	li {
-		position: relative;
-		height: $navLineHeight;
-		margin: 0;
+		li {
+			position: relative;
+			height: $navLineHeight;
+			margin: 0;
 
-		line-height: $navLineHeight;
-		&:before,
-		&:after {
-			@extend %light;
-			display: none;
-			font-style: normal;
-		}
-	}
-
-	a {
-		color: $fontColor;
-		text-decoration: none;
-
-		&:hover {
-			color: $fontHeavyColor;
+			line-height: $navLineHeight;
+			&:before,
+			&:after {
+				@extend %light;
+				display: none;
+				font-style: normal;
+			}
 		}
 
-		&:before,
-		&:after {
-			@extend %light;
-			display: none;
-			font-style: normal;
+		a {
+			color: $fontColor;
+			text-decoration: none;
+
+			&:hover {
+				color: $fontHeavyColor;
+			}
+
+			&:before,
+			&:after {
+				@extend %light;
+				display: none;
+				font-style: normal;
+			}
+		}
+
+		// current navigation
+		li.selected a {
+			color: $corporateColor;
+		}
+
+		// upcomming navigation
+		li.selected ~ li a {
+			color: $lightFontColor;
 		}
 	}
-
-	// current navigation
-	li.selected a {
-		color: $corporateColor;
-	}
-
-	// upcomming navigation
-	li.selected ~ li a {
-		color: $lightFontColor;
+	.waterdrop,
+	.line {
+		display: none;
 	}
 }
 
 // --- desktop nav --- //
 nav {
 	@include bp-large {
-		ul {
-			// position: relative;
-			background-color: $navLineBackgroundColor;
-		}
-
-		li {
-			//position: relative;
-			//height: $navLineHeight;
-			margin-left: $navIndent;
-
-			//line-height: $navLineHeight;
-			background-color: white;
-		}
-
-		// current navigation
-		li.selected {
-			&:before {
-				background-color: $corporateColor;
-			}
-		}
-
-		// upcomming navigation
-		li.selected ~ li {
-			&:before {
-				background-color: transparent;
-			}
+		// --- navigation --- //
+		ul.navigation {
 		}
 
 		// --- blobbs --- //
-		li {
-			&:before {
-				display: block;
-				position: absolute;
-				content: "";
-				width: $navIndent;
-				height: $navLineHeight;
-				margin-left: $navIndent * -1;
+		ul.waterdrop {
+			position: absolute;
+			display: block;
+			top: 0;
+			left: $navLineHeight * -1;
+			margin: 0;
+			filter: url("#water");
+			-webkit-filter: url("#water");
+			overflow: hidden;
+			z-index: 2;
 
-				background-color: $lightFontHeavyColor;
-				background-image: url( '../images/blobbs.png' );
-				background-position: $_spriteLeftOffset center;
-			}
-			&:first-child:before {
-				background-position: ( $_spriteLeftOffset + 50px ) center;
-			}
-			&:last-child:before {
-				background-position: ( $_spriteLeftOffset + 100px ) center;
+			li {
+				display: flex;
+			    flex-wrap: wrap;
+			    align-content: center;
+				
+				position: relative;
+				width: $navLineHeight; 
+				height: $navLineHeight; 
+				margin: 0;
+
+				background-color: transparent;
+			    z-index: 2;
+
+				&:before {
+					content: "";
+				}
+				div {
+					position: absolute;
+				    top: 50%;
+				    left: 50%;
+				    height: $dotWidth;
+				    width: $dotWidth;
+				    margin: -0.5*$dotWidth 0 0 -0.5*$dotWidth;
+					border-radius: 100%;
+					background-color: $lightFontHeavyColor;
+				}
+				&.selected ~ li div {
+					background-color: $lightBackgroundColor;
+				}
+				&.waterdrop {
+					position: absolute;
+					background-color: transparent;
+					top: 0;
+					z-index: 3;
+				}
+				&.waterdrop div {
+					background-color: $corporateColor;
+					//transform: scale(1.2, 1.2);
+				}
 			}
 		}
+		// --- line --- //
+		div.line {
+			position: absolute;
+			display: block;
+			width: 1px;
+			border-radius: 1px;
+			background-color: $lightFontHeavyColor;
+			height: $navLineHeight * 5;
+			margin-top: $navLineHeight * 0.5;
+			overflow: hidden;
+			z-index: 1;
 
-		// current blobb
-		// &:before {
-		// 	content: "";
-		// 	display: block;
-		// 	position: absolute;
-		// 	height: $navLineHeight;
-		// 	width: $navIndent;
-		// 	background-color: $fontHeavyColor;
-		// }
+			> span {
+				display: block;
+				width: 100%;
+			}
+			> span:first-child {
+				height: 0;
+				background-color: $lightFontHeavyColor;
+			}
+			> span:last-child {
+				height: 100%;
+				background-color: $lightBackgroundColor;
+			}
+		}
 	}
 }
 
@@ -120,7 +147,7 @@ nav {
 	@include bp-small {
 		margin-left: $gridGutterWidth;
 
-		ul {
+		ul.navigation {
 			margin: 0;
 
 			li {

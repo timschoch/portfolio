@@ -34,15 +34,24 @@
     <header id="pageHeader">
       <a href="#home" class="logo">Tim Schoch » UX/UI Designer</a>
       <nav>
-        <ul>
-          <li class="selected"><a
-            href="#home" class="home">Home</a></li><li><a
-            href="#process" class="process">Process</a></li><li><a
-            href="#work" class="work">Work</a></li><li><a
-            href="#quotes" class="quotes">Quotes</a></li><li><a
-            href="#aboutme" class="aboutme">About me</a></li><li><a
-            href="#hireme" class="hireme">Hire me</a></li>
+        <ul class="navigation">
+          <li class="selected"><a href="#home" class="home">Home</a></li>
+          <li><a href="#process" class="process">Process</a></li>
+          <li><a href="#work" class="work">Work</a></li>
+          <li><a href="#quotes" class="quotes">Quotes</a></li>
+          <li><a href="#aboutme" class="aboutme">About me</a></li>
+          <li><a href="#hireme" class="hireme">Hire me</a></li>
         </ul>
+        <ul class="waterdrop">
+          <li class="waterdrop"><div></div></li>
+          <li><div></div></li>
+          <li><div></div></li>
+          <li><div></div></li>
+          <li><div></div></li>
+          <li><div></div></li>
+          <li><div></div></li>
+        </ul>
+        <div class="line"><span></span><span></span></div>
       </nav>
     </header>
 
@@ -748,7 +757,7 @@
             <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>	</div>
             </div><!-- END REVOLUTION SLIDER -->
         </figure>
-        <p>Currently based in Lucerne, Switzerland, I'm a UX Specialist and Designer at <a href="http://www.ioz.ch" target="_blank">IOZ AG</a> where we build custom SharePoint Platforms and Add-Ins. As I'm the only one doing this sort of work my responsibilities range from <strong>producing custom Designs</strong> in Photoshop to <strong>planning and facilitating UX studies and workshops</strong> with our clients and introducing and <strong>establishing the UX principles</strong> with the various stakeholders within our company.</p>
+        <p>Currently based in Lucerne, Switzerland, I'm <strong>a Freelance UX / Interaction Designer</strong>.</p>
         <p>I've been floating through the web cosmos since the age of 14 (that's more than half of my life) as a graphic designer, front and backend developer and currently as a UX specialist. Throughout my career I've been interested in building easy to use products and prioritizing the user's needs.</p>
         <p>Back in the days that was an unusual view as things just had to work to be approved by clients. So once UX gained traction I finally found a name (or methodology) to express my desires and since I have focused on this creative yet analytic discipline.</p>
         <p>On a more personal note: I'm married to my lovely Wife Silvia and I'm a father of two sweet little princesses. I try to spend most of my free time with them and together we enjoy <a href="https://www.instagram.com/overlandfamily/" target="_blank">exploring Switzerland<i class="fa fa-instagram icon"></i></a>. Every now and then I get to be <a href="https://500px.com/timschoch" target="_blank">creative with my camera<i class="fa fa-500px icon"></i></a> or we <a href="http://silviaundtim.ch/" target="_blank">travel the world</a> (our German travel diary).</p>
@@ -762,7 +771,7 @@
             <li>Designing wireframes and mockups in Adobe CC</li>
             <li>Being strategic and creative at the same time</li>
           </ul>
-          <p class="light">Things I currently apply in my UX projects that I would like to further improve upon in my next assignments:</p>
+          <p class="light">Things I currently apply in my UX projects that I would like to focus on in my next assignments:</p>
           <ul>
             <li>Facilitating workshops</li>
             <li>More field and lab studies</li>
@@ -852,11 +861,23 @@
       <script src="/app/js/vendor/revolution/js/jquery.themepunch.tools.min.js"></script>
       <script src="/app/js/vendor/revolution/js/jquery.themepunch.revolution.min.js"></script>
     <!-- endbuild -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.13.1/TweenMax.min.js"></script>
 
     <!-- build:js js/main.js -->
       <script src="js/main.js"></script>
     <!-- endbuild -->
 
+
+    <!-- blur filter for waterdrops -->
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1" style="position: absolute">
+      <defs>
+        <filter id="water">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"></feGaussianBlur>
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="water"></feColorMatrix>
+          <feComposite in="SourceGraphic" in2="water" operator="atop"></feComposite>
+        </filter>
+      </defs>
+    </svg>
 
   </body>
 </html>

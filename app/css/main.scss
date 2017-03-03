@@ -80,6 +80,9 @@ $navSmallHeight: $gridBaseLineHeight * 2;
 $navSmallVerticalPadding: rem( 10px );
 $navSmallInnerHeight: $navSmallHeight - $navSmallVerticalPadding * 2;
 
+// --- Waterdrop --- //
+$dotWidth: 40%; // for blur depth 5
+
 // --- home --- //
 $posterMinHeight: 70vh;
 $posterSmallMinHeight: 70vh;
@@ -87,8 +90,6 @@ $posterXsmallMinHeight: 50vh;
 $posterPaddingTop: $gridGutterHeight * 5.5;
 $posterPaddingBottom: $gridGutterHeight * 4;
 $posterPaddingHorizontal: $gridGutterHeight * 1.5;
-
-
 
 // --- Work --- //
 $workHeaderImgWidth: rem( 200px );
